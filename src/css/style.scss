@@ -23,6 +23,19 @@
   }
 
   #calendar-body{
+    .weekdays{
+      list-style: none;
+
+      .weekday{
+        display: inline-block;
+        width: 13.6%;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size:12px;
+        color:#777;
+      }
+    }
+
     .days{
       list-style: none;
     }
