@@ -7,8 +7,9 @@
 
 <script>
 import moment from 'moment';
-const month = moment().month();
-const year = moment().year();
+const date = moment();
+const month = moment().format('MMM');
+const year = moment().format('YYYY');
 
 export default {
   data: function(){

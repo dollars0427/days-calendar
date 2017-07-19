@@ -1,9 +1,9 @@
 import Vue from 'vue';
-import calendar from './components/calendar.vue';
+import Calendar from './components/Calendar.vue';
 
 new Vue({
   el: '#app',
    components: {
-      calendar
+      Calendar
    }
 })

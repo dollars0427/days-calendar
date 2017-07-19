@@ -8,14 +8,11 @@
     border: 1px solid #E6E6E6;
     padding-top: 1em;
     padding-bottom: 1em;
-
-    .month{
-      text-align: center;
-    }
+    text-align: center;
   }
 
-  .calendar-body{
-    #days{
+  #calendar-body{
+    .days{
       list-style: none;
     }
   }
