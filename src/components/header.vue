@@ -1,7 +1,7 @@
 <template>
   <div class="calendar-wrapper">
     <div id="calendar-header">
-      <span class="prev">&#10094;</span>
+      <span class="prev" v-on:click="prevDate">&#10094;</span>
       <span class="next" v-on:click="nextDate">&#10095;</span>
       <span class="month">{{ monthName }}</span>
       <span class="year">{{ year }}</span>
@@ -29,14 +29,18 @@ export default {
   },
   methods: {
     nextDate: function () {
-      this.month += 1;
-
-      if(this.month === 12){
-        this.year += 1;
-        this.month = 0;
-      }
+      date.add(1, 'M');
+      this.year = date.year();
+      this.month = date.month();
       this.monthName = moment().month(this.month).format('MMM');
-    }
+    },
+
+    prevDate: function(){
+      date.subtract(1, 'M');
+      this.year = date.year();
+      this.month = date.month();
+      this.monthName = moment().month(this.month).format('MMM');
+    },
   },
 }
 </script>
