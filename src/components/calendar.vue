@@ -1,28 +1,15 @@
 <template>
   <div id="lfs-calendar">
     <CalendarHeader></CalendarHeader>
-    <CalendarBody></CalendarBody>
   </div>
 </template>
 
 <script>
 import CalendarHeader from './Header.vue';
-import CalendarBody from './Body.vue';
-
-function getEndDays(year, month){
-  const date = new Date(year, month, 0);
-  const endDay = date.getDate();
-  return endDay;
-}
 
 export default {
   components:{
-    CalendarHeader,
-    CalendarBody
+    CalendarHeader
   },
-  data: function(){
-    const data  = {'days': getEndDays(2017, 2)}
-    return data;
-  }
 }
 </script>

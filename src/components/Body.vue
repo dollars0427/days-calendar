@@ -16,8 +16,9 @@ function getEndDays(year, month){
 }
 
 export default {
+  props: ['year', 'month'],
   data: function(){
-    const data  = {'days': getEndDays(2017, 2)}
+    const data  = {'days': getEndDays(this.year, this.month)}
     return data;
   }
 }
