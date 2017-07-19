@@ -1,5 +1,22 @@
-#calendar{
-  .calendar-header{
-    border: 1px solid;
+#lfs-calendar{
+  width: 70vh;
+  border: 1px solid #E6E6E6;
+  margin-left: auto;
+  margin-right: auto;
+
+  #calendar-header{
+    border: 1px solid #E6E6E6;
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+    .month{
+      text-align: center;
+    }
+  }
+
+  .calendar-body{
+    #days{
+      list-style: none;
+    }
   }
 }

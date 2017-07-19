@@ -1,18 +1,32 @@
 <template>
-  <div id="calendar">
-    <div class="calendar-header">
-      <div class="month">
-        July 2017
-      </div>
-    </div>
-    <div class="calendar-body">
-
+  <div id="lfs-calendar">
+    <CalendarHeader></CalendarHeader>
+    <div id="calendar-body">
+      <ul id="days">
+        <li v-for="day in days">
+          {{ day }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
- <script>
-   export default {
+<script>
+import CalendarHeader from './header.vue';
 
-   }
-   </script>
+function getEndDays(year, month){
+  const date = new Date(year, month, 0);
+  const endDay = date.getDate();
+  return endDay;
+}
+
+export default {
+  components:{
+    CalendarHeader
+  },
+  data: function(){
+    const data  = {'days': getEndDays(2017, 2)}
+    return data;
+  }
+}
+</script>
