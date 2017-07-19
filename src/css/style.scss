@@ -8,7 +8,18 @@
     border: 1px solid #E6E6E6;
     padding-top: 1em;
     padding-bottom: 1em;
+    position: relative;
     text-align: center;
+
+    .prev{
+      position: absolute;
+      left:10px;
+    }
+
+    .next{
+      position: absolute;
+      right:10px;
+    }
   }
 
   #calendar-body{
