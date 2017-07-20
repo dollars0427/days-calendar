@@ -19,22 +19,23 @@ import moment from 'moment';
 
 function renderCalendar(year, month){
   const days = [];
-  const date = new moment().set({year, month, 'date': 1}).startOf('day');
+  const monthStart = new moment().set({year, month, 'date': 1}).startOf('day');
   const lastSunday = new moment().set({year, month, 'date': 1}).day('Sunday').startOf('day');
-  const additonDays = date.diff(lastSunday, 'days') -1;
+  const additonDays = monthStart.diff(lastSunday, 'days') -1;
 
   if(additonDays !== -1){
     days.push({ number: lastSunday.date(), date: lastSunday, class:['last-month'] });
     for(let i = additonDays; i !== 0; i--){
-      lastSunday.add(1, 'days');
-      const day = {number:lastSunday.date(), class:['last-month'] };
+      const date = lastSunday.add(1, 'days');
+      const day = {number:date.date(), date, class:['last-month'] };
       days.push(day);
     }
   }
 
-  const monthLength = date.endOf('month').date();
+  const monthLength = monthStart.endOf('month').date();
 
   for(let i = 1; i <= monthLength; i++){
+    const date = new moment().set({year, month, 'date': 1}).startOf('day');
     const day = {number: i, class:[]};
     days.push(day);
   }
