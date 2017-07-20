@@ -6,7 +6,7 @@
       <span class="month">{{ monthName }}</span>
       <span class="year">{{ year }}</span>
     </div>
-    <CalendarBody :year="year" :month="month"></CalendarBody>
+    <CalendarBody :weekdays="weekdays" :year="year" :month="month"></CalendarBody>
   </div>
 </template>
 

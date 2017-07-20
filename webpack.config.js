@@ -25,5 +25,8 @@ module.exports = {
                 loader: 'vue'
             }
         ]
-    }
+    },
+    "plugins":[
+      new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/()$/)
+    ]
 }

@@ -51,7 +51,7 @@ function renderCalendar(year, month, customFunction){
 
 export default {
   props: {
-    'year': String,
+    'year': Number,
     'month': Number,
     'weekdays': Array,
     'customFunction': Function
@@ -66,7 +66,6 @@ export default {
   },
   data: function(){
     return {
-      'weekdays': this.weekdays,
       'days': renderCalendar(this.year, this.month, this.customFunction)
     };
   }

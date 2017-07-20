@@ -1,6 +1,6 @@
 <template>
   <div id="lfs-calendar">
-    <CalendarHeader></CalendarHeader>
+    <CalendarHeader :weekdays="weekdays" :customFunction="customFunction"></CalendarHeader>
   </div>
 </template>
 
@@ -11,7 +11,10 @@ export default {
   props:{
     'weekdays':{
       'type': Array,
-      'default': ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+      'default': function(){
+        const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        return weekdays;
+      }
     },
     'customFunction':{
       type: Function
