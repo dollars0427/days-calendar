@@ -4,6 +4,10 @@
   </div>
 </template>
 
+<style lang="sass">
+@import '../css/style.scss'
+</style>
+
 <script>
 import CalendarHeader from './Header.vue';
 

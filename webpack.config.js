@@ -21,6 +21,11 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+              test: /\.scss$/,
+              loader:'sass-loader',
+              exclude: /node_modules/
+            },
+            {
                 test: /\.vue$/,
                 loader: 'vue'
             }
