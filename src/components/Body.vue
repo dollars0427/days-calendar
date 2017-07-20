@@ -17,8 +17,8 @@
 <script>
 import moment from 'moment';
 
-function renderCalendar(year, month){
-  const days = [];
+function renderCalendar(year, month, customFunction){
+  let days = [];
   const monthStart = new moment().set({year, month, 'date': 1}).startOf('day');
   const lastSunday = new moment().set({year, month, 'date': 1}).day('Sunday').startOf('day');
   const additonDays = monthStart.diff(lastSunday, 'days') -1;
@@ -39,25 +39,35 @@ function renderCalendar(year, month){
     const day = {number: i, class:[]};
     days.push(day);
   }
+
+  //Pass rendered calendar to customFunction
+
+  if(customFunction){
+    days = customFunction(days);
+  }
+
   return days;
 }
 
-const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
 export default {
-  props: ['year', 'month'],
+  props: {
+    'year': String,
+    'month': Number,
+    'weekdays': Array,
+    'customFunction': Function
+  },
   watch: {
     year: function(val){
-      this.days = renderCalendar(this.year, this.month);
+      this.days = renderCalendar(this.year, this.month, this.customFunction);
     },
     month: function(val){
-      this.days = renderCalendar(this.year, this.month);
+      this.days = renderCalendar(this.year, this.month, this.customFunction);
     }
   },
   data: function(){
     return {
-      'weekdays': weekdays,
-      'days': renderCalendar(this.year, this.month)
+      'weekdays': this.weekdays,
+      'days': renderCalendar(this.year, this.month, this.customFunction)
     };
   }
 }

@@ -20,6 +20,10 @@ const monthName = moment().format('MMM');
 const year = moment().year();
 
 export default {
+  props:{
+    'weekdays':Array,
+    'customFunction': Function
+  },
   components:{
     CalendarBody
   },
