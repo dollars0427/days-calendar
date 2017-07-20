@@ -10,7 +10,7 @@ module.exports = {
     "resolve": {
         "extensions": ['', '.js', '.vue'],
         alias: {
-            vue: 'vue/dist/vue.js'
+            vue: 'vue/dist/vue.common.js'
         }
     },
     "module": {
@@ -27,6 +27,11 @@ module.exports = {
         ]
     },
     "plugins":[
-      new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/()$/)
+      new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/()$/),
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: '"production"'
+        }
+      })
     ]
 }
