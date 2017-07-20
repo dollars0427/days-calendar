@@ -8,7 +8,7 @@
 
     <ul class="days">
       <li class="day" v-for="day in days">
-        <span v-bind:class="{'last-month': day.lastMonth}">{{day.number}}</span>
+        <span :class="day.class">{{day.number}}</span>
       </li>
     </ul>
   </div>
@@ -24,10 +24,10 @@ function renderCalendar(year, month){
   const additonDays = date.diff(lastSunday, 'days') -1;
 
   if(additonDays !== -1){
-    days.push({number: lastSunday.date(), lastMonth: true});
+    days.push({ number: lastSunday.date(), date: lastSunday, class:['last-month'] });
     for(let i = additonDays; i !== 0; i--){
       lastSunday.add(1, 'days');
-      const day = {number:lastSunday.date(), lastMonth: true};
+      const day = {number:lastSunday.date(), class:['last-month'] };
       days.push(day);
     }
   }
@@ -35,7 +35,7 @@ function renderCalendar(year, month){
   const monthLength = date.endOf('month').date();
 
   for(let i = 1; i <= monthLength; i++){
-    const day = {number: i, lastMonth: false};
+    const day = {number: i, class:[]};
     days.push(day);
   }
   return days;
