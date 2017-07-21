@@ -1,9 +1,2 @@
-import Vue from 'vue';
-import Calendar from './components/Calendar.vue';
-
-new Vue({
-  el: '#app',
-   components: {
-      Calendar
-   }
-})
+import DaysCalendar from './components/Calendar.vue';
+export default DaysCalendar;

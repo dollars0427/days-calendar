@@ -5,7 +5,9 @@ module.exports = {
     "entry": "./src/main.js",
     "output": {
         "path": __dirname + "/dist",
-        "filename": "bundle.js"
+        "library": 'Days',
+        "libraryTarget": 'commonjs2',
+        "filename": "Days.js"
     },
     "resolve": {
         "extensions": ['', '.js', '.vue'],
