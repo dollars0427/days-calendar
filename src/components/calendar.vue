@@ -16,7 +16,7 @@ export default {
     'weekdays':{
       'type': Array,
       'default': function(){
-        const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         return weekdays;
       }
     },

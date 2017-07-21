@@ -1,16 +1,17 @@
 <template>
   <div id="calendar-body">
-    <ul class="weekdays">
-      <li class="weekday" v-for="weekday in weekdays">
-        {{weekday}}
-      </li>
-    </ul>
+    <div class="weekdays">
+        <div class="weekday" v-for="weekday in weekdays">
+          <div>{{weekday}}</div>
+        </div>
+      </ul>
+    </div>
 
-    <ul class="days">
-      <li class="day" v-for="day in days">
+    <div class="days">
+      <div class="day" v-for="day in days">
         <span :class="day.class">{{day.number}}</span>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>
 

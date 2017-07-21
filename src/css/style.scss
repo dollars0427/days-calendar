@@ -1,8 +1,14 @@
 #lfs-calendar{
-  width: 50%;
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
   border: 1px solid #E6E6E6;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: 934px){
+    width: 100%;
+  }
 
   #calendar-header{
     border: 1px solid #E6E6E6;
@@ -23,29 +29,36 @@
   }
 
   #calendar-body{
+    width: 100%;
+
     .weekdays{
-      list-style: none;
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      margin-top: 1em;
 
       .weekday{
-        display: inline-block;
-        width: 13.6%;
+        width: 14.28% !important;
+        font-weight: bold;
+        display: table-cell;
+        box-sizing: border-box;
+        position: relative;
         text-align: center;
-        margin-bottom: 5px;
-        font-size:12px;
-        color:#777;
+        text-transform: uppercase;
       }
     }
 
     .days{
-      list-style: none;
+      margin-top: 1em;
 
       .day{
         display: inline-block;
-        width: 13.6%;
+        padding:0;
+        width: 14.28% !important;
         text-align: center;
-        margin-bottom: 5px;
-        font-size:12px;
+        margin-bottom: 10px;
         color:#777;
+        font-size: 20px;
       }
 
       .last-month{
