@@ -1,4 +1,4 @@
-# Daze Calender
+# Days Calendar
 
 Simple and customizable calender for Vue,  which only used moment.js and no more other dependencies.
 
