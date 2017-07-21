@@ -5,21 +5,53 @@ Simple and customizable calender for Vue,  which only used moment.js and no more
 This project still under active development, please feel free to open issues or pull request.
 
 ## Demo
-Still working
+http://days.sardo.work/
 
 ## Features
 - Customizable days and weekdays output
 - Customizable style
 
 ## Installation
-Still working
+```bash
+npm install days-calendar --save
+```
+
+or
+
+```bash
+yarn add days-calendar
+```
 
 ## Usage
-Still working
+
+```js
+import DaysCalendar from 'days-calendar';
+
+new Vue({
+  el: '#your-dom-element',
+   components: {
+      Calendar: DaysCalendar
+   }
+})
+```
 
 ## Props
+#### weekdays (optional)
+An array which include a list of weekdays. You can custom weekdays name by this props.
 
-Still working  
+Default value: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
+#### customFunction (optional)
+If you pass the custom function to Days Calendar, it will pass days object to the function before render.
+
+```js
+myCustomFunc(days){
+  console.log('First Day:', days[0]);
+}
+
+/* Output will be: 
+First Day: { number: 1, date: (Moment Date Object), class: [] } */
+``` 
 
 ## Contributing
 

@@ -37,7 +37,7 @@ function renderCalendar(year, month, customFunction){
 
   for(let i = 1; i <= monthLength; i++){
     const date = new moment().set({year, month, 'date': 1}).startOf('day');
-    const day = {number: i, class:[]};
+    const day = {number: i, date, class:[]};
     days.push(day);
   }
 
