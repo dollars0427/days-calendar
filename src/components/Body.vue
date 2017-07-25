@@ -9,7 +9,7 @@
 
     <div class="days">
       <div class="day" v-for="day in days">
-        <span :class="day.class">{{day.number}}</span>
+        <Modal :day="day"></Modal>
       </div>
     </div>
   </div>
@@ -17,6 +17,7 @@
 
 <script>
 import moment from 'moment';
+import Modal from './Modal.vue';
 
 function renderCalendar(year, month, customFunction){
   let days = [];
@@ -56,6 +57,9 @@ export default {
     'month': Number,
     'weekdays': Array,
     'customFunction': Function
+  },
+  components:{
+    Modal
   },
   watch: {
     year: function(val){
