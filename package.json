@@ -11,8 +11,7 @@
     "watch": "./node_modules/.bin/gulp watch"
   },
   "dependencies": {
-    "moment": "^2.18.1",
-    "vue": "^2.3.4"
+    "moment": "^2.18.1"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
