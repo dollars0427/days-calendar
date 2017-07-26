@@ -1,3 +1,7 @@
+.download {
+  margin-top: 2em;
+}
+
 h1{
   text-align: center;
   font-family: 'Montserrat', sans-serif;
@@ -18,9 +22,4 @@ h2{
   @media screen and (max-width: 768px){
     display: none;
   }
-}
-
-#lfs-calendar{
-  margin-left: auto;
-  margin-right: auto;
 }
