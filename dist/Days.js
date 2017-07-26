@@ -5177,7 +5177,7 @@ module.exports =
 	  var monthLength = monthStart.endOf('month').date();
 
 	  for (var _i = 1; _i <= monthLength; _i++) {
-	    var _date = new _moment2.default().set({ year: year, month: month, i: _i }).startOf('day');
+	    var _date = new _moment2.default().set({ year: year, month: month, 'date': _i }).startOf('day');
 	    var _day = { number: _i, date: _date, class: [] };
 	    days.push(_day);
 	  }
