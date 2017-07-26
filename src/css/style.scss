@@ -22,11 +22,19 @@
     .prev{
       position: absolute;
       left:10px;
+
+      &:hover{
+        color:#DDD;
+      }
     }
 
     .next{
       position: absolute;
       right:10px;
+
+      &:hover{
+        color:#DDD;
+      }
     }
   }
 
@@ -62,6 +70,10 @@
         color:#777;
         font-size: 20px;
         line-height: 1;
+
+        span:hover{
+          color:#DDD;
+        }
       }
 
       .last-month{

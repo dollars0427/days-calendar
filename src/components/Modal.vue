@@ -7,16 +7,21 @@
           <div class="modal-wrapper">
             <div class="modal-container">
               <div class="modal-header">
-                <slot name="header">
+                <div name="header">
                   {{ getDate }}
-                </slot>
+                </div>
               </div>
 
               <div class="modal-body">
-                <slot name="body">
-                  No events.
-                </slot>
+                <div v-if="day.content">
+                  {{ day.content }}
+                </div>
+
+                <div v-else>
+                  No events
+                </div>
               </div>
+
             </div>
           </div>
         </div>
