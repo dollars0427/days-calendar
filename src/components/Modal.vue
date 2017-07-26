@@ -1,10 +1,8 @@
 <template>
-
-  <div>
+  <div id="calendar-modal">
     <span :class="day.class" v-on:click="show">{{day.number}}</span>
-
+    <transition name="modal">
     <div v-if="showModal">
-      <transition name="modal">
         <div class="modal-mask" v-on:click="close">
           <div class="modal-wrapper">
             <div class="modal-container">
@@ -22,8 +20,8 @@
             </div>
           </div>
         </div>
-      </transition>
     </div>
+    </transition>
   </div>
 </template>
 
