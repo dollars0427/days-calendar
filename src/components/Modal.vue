@@ -1,27 +1,23 @@
 <template>
   <div id="calendar-modal">
-    <span :class="day.class" v-on:click="show">{{day.number}}</span>
+    <span :class="day.class" v-on:click="renderContent">{{day.number}}</span>
     <transition name="modal">
       <div v-if="showModal">
         <div class="modal-mask" v-on:click="close">
           <div class="modal-wrapper">
             <div class="modal-container">
               <div class="modal-header">
-                <div name="header">
-                  {{ getDate }}
-                </div>
+                  {{ day.date.format('LL') }}
               </div>
 
               <div class="modal-body">
                 <div v-if="day.content">
-                  {{ day.content }}
+                  <div v-html="day.content"></div>
                 </div>
-
                 <div v-else>
-                  No events
+                  No events.
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -36,19 +32,14 @@ import moment from 'moment';
 export default {
   props: {
     'day': Object,
-  },
-  computed: {
-    getDate: function () {
-      if(this.day.date.format){
-        return this.day.date.format("MMM Do YY");
-      }else{
-        return this.day.date;
-      }
-    }
+    'renderDay': Function
   },
   methods: {
-    show: function () {
+    renderContent: function(){
       this.showModal = true;
+      if(this.renderDay){
+        this.renderDay(day);
+      }
     },
     close: function(){
       this.showModal = false;

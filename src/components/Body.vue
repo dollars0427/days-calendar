@@ -9,7 +9,7 @@
 
     <div class="days">
       <div class="day" v-for="day in days">
-        <Modal :day="day"></Modal>
+        <Modal :renderDay="renderDay" :day="day"></Modal>
       </div>
     </div>
   </div>
@@ -26,9 +26,9 @@ function renderCalendar(year, month, customFunction){
   const additonDays = monthStart.diff(lastSunday, 'days') -1;
 
   if(additonDays !== -1){
-    days.push({ number: lastSunday.date(), date: lastSunday, class:['last-month'] });
+    days.push({ number: lastSunday.date(), date: new moment(lastSunday), class:['last-month'] });
     for(let i = additonDays; i !== 0; i--){
-      const date = lastSunday.add(1, 'days');
+      const date = new moment(lastSunday.add(1, 'days'));
       const day = {number:date.date(), date, class:['last-month'] };
       days.push(day);
     }
@@ -42,12 +42,6 @@ function renderCalendar(year, month, customFunction){
     days.push(day);
   }
 
-  //Pass rendered calendar to customFunction
-
-  if(customFunction){
-    days = customFunction(days);
-  }
-
   return days;
 }
 
@@ -56,22 +50,22 @@ export default {
     'year': Number,
     'month': Number,
     'weekdays': Array,
-    'customFunction': Function
+    'renderDay': Function
   },
   components:{
     Modal
   },
   watch: {
     year: function(val){
-      this.days = renderCalendar(this.year, this.month, this.customFunction);
+      this.days = renderCalendar(this.year, this.month);
     },
     month: function(val){
-      this.days = renderCalendar(this.year, this.month, this.customFunction);
+      this.days = renderCalendar(this.year, this.month);
     }
   },
   data: function(){
     return {
-      'days': renderCalendar(this.year, this.month, this.customFunction)
+      'days': renderCalendar(this.year, this.month)
     };
   }
 }

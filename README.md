@@ -41,17 +41,17 @@ An array which include a list of weekdays. You can custom weekdays name by this 
 
 Default value: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-#### customFunction (optional)
-If you pass the custom function to Days Calendar, it will pass days object to the function before render.
+#### renderDay (optional)
+If you pass the render to Days Calendar, it will pass day object to the function before render the content.
 
 ```js
-myCustomFunc(days){
-  console.log('First Day:', days[0]);
+renderDay(day){
+  console.log(day);
 }
 
-/* Output will be: 
-First Day: { number: 1, date: (Moment Date Object), class: [] } */
-``` 
+/* Output will be:
+First Day: { number: (Number of that day), date: (Moment Date Object), class: [] } */
+```
 
 ## Contributing
 

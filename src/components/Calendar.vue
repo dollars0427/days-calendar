@@ -1,6 +1,6 @@
 <template>
   <div id="lfs-calendar">
-    <CalendarHeader :weekdays="weekdays" :customFunction="customFunction"></CalendarHeader>
+    <CalendarHeader :weekdays="weekdays" :renderDay="renderDay"></CalendarHeader>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
         return weekdays;
       }
     },
-    'customFunction':{
+    'renderDay':{
       type: Function
     }
   },

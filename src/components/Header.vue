@@ -6,7 +6,7 @@
       <span class="month">{{ monthName }}</span>
       <span class="year">{{ year }}</span>
     </div>
-    <CalendarBody :weekdays="weekdays" :year="year" :month="month"></CalendarBody>
+    <CalendarBody :weekdays="weekdays" :year="year" :month="month" :renderDay="renderDay"></CalendarBody>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ const year = moment().year();
 export default {
   props:{
     'weekdays':Array,
-    'customFunction': Function
+    'renderDay': Function
   },
   components:{
     CalendarBody

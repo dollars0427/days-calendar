@@ -5442,7 +5442,8 @@ module.exports =
 	    attrs: {
 	      "weekdays": _vm.weekdays,
 	      "year": _vm.year,
-	      "month": _vm.month
+	      "month": _vm.month,
+	      "customFunction": _vm.customFunction
 	    }
 	  })], 1)
 	},staticRenderFns: []}
