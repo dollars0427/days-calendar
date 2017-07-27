@@ -50,7 +50,8 @@ export default {
     'year': Number,
     'month': Number,
     'weekdays': Array,
-    'renderDay': Function
+    'renderDay': Function,
+    'renderDays': Function
   },
   components:{
     Modal

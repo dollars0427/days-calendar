@@ -141,7 +141,7 @@ module.exports =
 
 
 	// module
-	exports.push([module.id, "\n#lfs-calendar {\n  width: 100%;\n  max-width: 600px;\n  height: 300px;\n  border: 1px solid #E6E6E6;\n  background-color: white;\n  margin-left: auto;\n  margin-right: auto;\n}\n@media screen and (max-width: 600px) {\n#lfs-calendar {\n      width: 80%;\n      margin-bottom: 1em;\n}\n}\n#lfs-calendar #calendar-header {\n    border: 1px solid #E6E6E6;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    position: relative;\n    text-align: center;\n}\n#lfs-calendar #calendar-header .prev {\n      position: absolute;\n      left: 10px;\n}\n#lfs-calendar #calendar-header .prev:hover {\n        color: #DDD;\n}\n#lfs-calendar #calendar-header .next {\n      position: absolute;\n      right: 10px;\n}\n#lfs-calendar #calendar-header .next:hover {\n        color: #DDD;\n}\n#lfs-calendar #calendar-body {\n    width: 100%;\n}\n#lfs-calendar #calendar-body .weekdays {\n      display: table;\n      table-layout: fixed;\n      width: 100%;\n      margin-top: 1em;\n}\n#lfs-calendar #calendar-body .weekdays .weekday {\n        width: 14.28% !important;\n        font-weight: bold;\n        display: table-cell;\n        box-sizing: border-box;\n        position: relative;\n        text-align: center;\n        text-transform: uppercase;\n}\n#lfs-calendar #calendar-body .days {\n      margin-top: 1em;\n}\n#lfs-calendar #calendar-body .days .day {\n        display: inline-block;\n        padding: 0;\n        width: 14.28% !important;\n        text-align: center;\n        margin-bottom: 10px;\n        color: #777;\n        font-size: 20px;\n        line-height: 1;\n}\n#lfs-calendar #calendar-body .days .day span:hover {\n          color: #DDD;\n}\n#lfs-calendar #calendar-body .days .last-month {\n        color: #DDD;\n}\n#calendar-modal .modal-mask {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: table;\n  transition: opacity .3s ease;\n}\n#calendar-modal .modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n#calendar-modal .modal-container {\n  width: 300px;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n#calendar-modal .modal-header h3 {\n  margin-top: 0;\n  color: #42b983;\n}\n#calendar-modal .modal-body {\n  margin: 20px 0;\n}\n#calendar-modal .modal-enter-active, #calendar-modal .modal-leave-active {\n  transition: opacity .5s;\n}\n#calendar-modal .modal-enter, #calendar-modal .modal-leave-active {\n  opacity: 0;\n}\n", ""]);
+	exports.push([module.id, "\n#lfs-calendar {\n  width: 100%;\n  max-width: 600px;\n  height: 300px;\n  border: 1px solid #E6E6E6;\n  background-color: white;\n  margin-left: auto;\n  margin-right: auto;\n}\n@media screen and (max-width: 600px) {\n#lfs-calendar {\n      width: 80%;\n      margin-bottom: 1em;\n}\n}\n#lfs-calendar #calendar-header {\n    border: 1px solid #E6E6E6;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    position: relative;\n    text-align: center;\n}\n#lfs-calendar #calendar-header .prev {\n      position: absolute;\n      left: 10px;\n}\n#lfs-calendar #calendar-header .prev:hover {\n        color: #DDD;\n}\n#lfs-calendar #calendar-header .next {\n      position: absolute;\n      right: 10px;\n}\n#lfs-calendar #calendar-header .next:hover {\n        color: #DDD;\n}\n#lfs-calendar #calendar-body {\n    width: 100%;\n}\n#lfs-calendar #calendar-body .weekdays {\n      display: table;\n      table-layout: fixed;\n      width: 100%;\n      margin-top: 1em;\n}\n#lfs-calendar #calendar-body .weekdays .weekday {\n        width: 14.28% !important;\n        font-weight: bold;\n        display: table-cell;\n        box-sizing: border-box;\n        position: relative;\n        text-align: center;\n        text-transform: uppercase;\n}\n#lfs-calendar #calendar-body .days {\n      margin-top: 1em;\n}\n#lfs-calendar #calendar-body .days .day {\n        display: inline-block;\n        padding: 0;\n        width: 14.28% !important;\n        text-align: center;\n        margin-bottom: 10px;\n        color: #777;\n        font-size: 20px;\n        line-height: 1;\n}\n#lfs-calendar #calendar-body .days .day span:hover {\n          color: #DDD;\n}\n#lfs-calendar #calendar-body .days .last-month {\n        color: #DDD;\n}\n#calendar-modal .modal-mask {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: table;\n  transition: opacity .3s ease;\n}\n#calendar-modal .modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n#calendar-modal .modal-container {\n  width: 300px;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n#calendar-modal .modal-body {\n  margin: 20px 0;\n}\n#calendar-modal .modal-enter-active, #calendar-modal .modal-leave-active {\n  transition: opacity .3s;\n}\n#calendar-modal .modal-enter, #calendar-modal .modal-leave-active {\n  opacity: 0;\n}\n", ""]);
 
 	// exports
 
@@ -449,7 +449,10 @@ module.exports =
 	        return weekdays;
 	      }
 	    },
-	    'customFunction': {
+	    'renderDay': {
+	      type: Function
+	    },
+	    'renderDays': {
 	      type: Function
 	    }
 	  },
@@ -552,7 +555,8 @@ module.exports =
 	exports.default = {
 	  props: {
 	    'weekdays': Array,
-	    'customFunction': Function
+	    'renderDay': Function,
+	    'renderDays': Function
 	  },
 	  components: {
 	    CalendarBody: _Body2.default
@@ -5166,9 +5170,9 @@ module.exports =
 	  var additonDays = monthStart.diff(lastSunday, 'days') - 1;
 
 	  if (additonDays !== -1) {
-	    days.push({ number: lastSunday.date(), date: lastSunday, class: ['last-month'] });
+	    days.push({ number: lastSunday.date(), date: new _moment2.default(lastSunday), class: ['last-month'] });
 	    for (var i = additonDays; i !== 0; i--) {
-	      var date = lastSunday.add(1, 'days');
+	      var date = new _moment2.default(lastSunday.add(1, 'days'));
 	      var day = { number: date.date(), date: date, class: ['last-month'] };
 	      days.push(day);
 	    }
@@ -5182,12 +5186,6 @@ module.exports =
 	    days.push(_day);
 	  }
 
-	  //Pass rendered calendar to customFunction
-
-	  if (customFunction) {
-	    days = customFunction(days);
-	  }
-
 	  return days;
 	}
 
@@ -5196,22 +5194,23 @@ module.exports =
 	    'year': Number,
 	    'month': Number,
 	    'weekdays': Array,
-	    'customFunction': Function
+	    'renderDay': Function,
+	    'renderDays': Function
 	  },
 	  components: {
 	    Modal: _Modal2.default
 	  },
 	  watch: {
 	    year: function year(val) {
-	      this.days = renderCalendar(this.year, this.month, this.customFunction);
+	      this.days = renderCalendar(this.year, this.month);
 	    },
 	    month: function month(val) {
-	      this.days = renderCalendar(this.year, this.month, this.customFunction);
+	      this.days = renderCalendar(this.year, this.month);
 	    }
 	  },
 	  data: function data() {
 	    return {
-	      'days': renderCalendar(this.year, this.month, this.customFunction)
+	      'days': renderCalendar(this.year, this.month)
 	    };
 	  }
 	};
@@ -5278,20 +5277,16 @@ module.exports =
 
 	exports.default = {
 	  props: {
-	    'day': Object
-	  },
-	  computed: {
-	    getDate: function getDate() {
-	      if (this.day.date.format) {
-	        return this.day.date.format("MMM Do YY");
-	      } else {
-	        return this.day.date;
-	      }
-	    }
+	    'day': Object,
+	    'renderDay': Function
 	  },
 	  methods: {
-	    show: function show() {
+	    renderContent: function renderContent() {
 	      this.showModal = true;
+
+	      if (this.renderDay) {
+	        this.renderDay(day);
+	      }
 	    },
 	    close: function close() {
 	      this.showModal = false;
@@ -5303,10 +5298,6 @@ module.exports =
 	    };
 	  }
 	}; //
-	//
-	//
-	//
-	//
 	//
 	//
 	//
@@ -5347,7 +5338,7 @@ module.exports =
 	  }, [_c('span', {
 	    class: _vm.day.class,
 	    on: {
-	      "click": _vm.show
+	      "click": _vm.renderContent
 	    }
 	  }, [_vm._v(_vm._s(_vm.day.number))]), _vm._v(" "), _c('transition', {
 	    attrs: {
@@ -5364,13 +5355,13 @@ module.exports =
 	    staticClass: "modal-container"
 	  }, [_c('div', {
 	    staticClass: "modal-header"
-	  }, [_c('div', {
-	    attrs: {
-	      "name": "header"
-	    }
-	  }, [_vm._v("\n                " + _vm._s(_vm.getDate) + "\n              ")])]), _vm._v(" "), _c('div', {
+	  }, [_vm._v("\n                " + _vm._s(_vm.day.date.format('LL')) + "\n            ")]), _vm._v(" "), _c('div', {
 	    staticClass: "modal-body"
-	  }, [(_vm.day.content) ? _c('div', [_vm._v("\n                " + _vm._s(_vm.day.content) + "\n              ")]) : _c('div', [_vm._v("\n                No events\n              ")])])])])])]) : _vm._e()])], 1)
+	  }, [(_vm.day.content) ? _c('div', [_c('div', {
+	    domProps: {
+	      "innerHTML": _vm._s(_vm.day.content)
+	    }
+	  })]) : _c('div', [_vm._v("\n                No events.\n              ")])])])])])]) : _vm._e()])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -5401,6 +5392,7 @@ module.exports =
 	      staticClass: "day"
 	    }, [_c('Modal', {
 	      attrs: {
+	        "renderDay": _vm.renderDay,
 	        "day": day
 	      }
 	    })], 1)
@@ -5443,7 +5435,8 @@ module.exports =
 	      "weekdays": _vm.weekdays,
 	      "year": _vm.year,
 	      "month": _vm.month,
-	      "customFunction": _vm.customFunction
+	      "renderDay": _vm.renderDay,
+	      "renderDays": _vm.renderDays
 	    }
 	  })], 1)
 	},staticRenderFns: []}
@@ -5466,7 +5459,8 @@ module.exports =
 	  }, [_c('CalendarHeader', {
 	    attrs: {
 	      "weekdays": _vm.weekdays,
-	      "customFunction": _vm.customFunction
+	      "renderDay": _vm.renderDay,
+	      "renderDays": _vm.renderDays
 	    }
 	  })], 1)
 	},staticRenderFns: []}

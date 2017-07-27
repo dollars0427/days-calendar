@@ -42,7 +42,7 @@ An array which include a list of weekdays. You can custom weekdays name by this 
 Default value: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 #### renderDay (optional)
-If you pass the render to Days Calendar, it will pass day object to the function before render the content.
+If you pass this props to Days Calendar, it will pass day object to the function before render the content.
 
 ```js
 renderDay(day){
@@ -51,6 +51,17 @@ renderDay(day){
 
 /* Output will be:
 First Day: { number: (Number of that day), date: (Moment Date Object), class: [] } */
+```
+
+#### renderDays (optional)
+If you pass this props to Days Calendar, it will pass the array of day object to the function before render the content.
+It should return a day object array.
+
+```js
+renderDays(days){
+  console.log(days);
+  return days;
+}
 ```
 
 ## Contributing

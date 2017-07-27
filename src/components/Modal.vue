@@ -37,6 +37,7 @@ export default {
   methods: {
     renderContent: function(){
       this.showModal = true;
+
       if(this.renderDay){
         this.renderDay(day);
       }
