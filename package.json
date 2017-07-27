@@ -1,11 +1,11 @@
 {
   "name": "days-calendar",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Mr.Twister<sardo.ip@sardo.work>",
   "license": "MIT",
   "description": "Simple and customizable calender components for Vue",
   "repository": "https://github.com/dollars0427/days-calendar",
-  "main": "index.js",
+  "main": "dist/Days.js",
   "scripts": {
     "build": "./node_modules/.bin/gulp",
     "watch": "./node_modules/.bin/gulp watch"
