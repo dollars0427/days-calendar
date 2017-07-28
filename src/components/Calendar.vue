@@ -3,16 +3,16 @@
     <div id="days-calendar">
       <div class="calendar-wrapper">
         <CalendarHeader :getYearMonth="getYearMonth"></CalendarHeader>
-        <CalendarBody :renderContent="renderContent" :renderDays="renderDays" :month="month" :year="year"></CalendarBody>
+        <CalendarBody :weekdays="weekdays" :renderContent="renderContent" :renderDays="renderDays" :month="month" :year="year"></CalendarBody>
       </div>
     </div>
 
-    <div id="calendar-modal">
+    <div class="calendar-modal">
       <transition name="modal">
         <div v-if="showModal">
           <div class="modal-mask" v-on:click="close">
             <div class="modal-wrapper">
-              <div class="modal-container">
+              <div class="modal-container" v-on:click="stopClose">
                 <slot name="modal-content">
                   <div class="modal-header">
                     {{ day.date.format('LL') }}
@@ -79,6 +79,9 @@
         },
         close: function(){
           this.showModal = false;
+        },
+        stopClose: function(e){
+          e.stopPropagation();
         }
       },
       data: function(){

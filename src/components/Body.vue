@@ -9,7 +9,8 @@
 
     <div class="days">
       <div class="day" v-for="day in days">
-        <span :class="day.class" v-on:click="renderContent(day)">{{day.number}}</span>
+        <span class="disabled" v-if="day.disabled">{{day.number}}</span>
+        <span v-else :class="day.class"v-on:click="renderContent(day)">{{day.number}}</span>
       </div>
     </div>
   </div>
@@ -25,10 +26,10 @@ function renderCalendar(year, month, renderDays){
   const additonDays = monthStart.diff(lastSunday, 'days') -1;
 
   if(additonDays !== -1){
-    days.push({ number: lastSunday.date(), date: new moment(lastSunday), class:['last-month'] });
+    days.push({ number: lastSunday.date(), date: new moment(lastSunday), class:[], disabled: true });
     for(let i = additonDays; i !== 0; i--){
       const date = new moment(lastSunday.add(1, 'days'));
-      const day = {number:date.date(), date, class:['last-month'] };
+      const day = {number:date.date(), date, class:[], disabled: true };
       days.push(day);
     }
   }

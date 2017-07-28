@@ -70,20 +70,22 @@
         color:#777;
         font-size: 20px;
         line-height: 1;
+        cursor:pointer;
 
         span:hover{
           color:#DDD;
         }
       }
 
-      .last-month{
-        color:#DDD;
+      span.disabled{
+        color: #DDD;
+        cursor:not-allowed;
       }
     }
   }
 }
 
-#calendar-modal{
+.calendar-modal{
   .modal-mask {
     position: fixed;
     z-index: 9998;
