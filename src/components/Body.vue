@@ -9,7 +9,7 @@
 
     <div class="days">
       <div class="day" v-for="day in days">
-        <Modal :renderDay="renderDay" :day="day"></Modal>
+        <span :class="day.class" v-on:click="renderContent(day)">{{day.number}}</span>
       </div>
     </div>
   </div>
@@ -17,9 +17,8 @@
 
 <script>
 import moment from 'moment';
-import Modal from './Modal.vue';
 
-function renderCalendar(year, month, customFunction){
+function renderCalendar(year, month, renderDays){
   let days = [];
   const monthStart = new moment().set({year, month, 'date': 1}).startOf('day');
   const lastSunday = new moment().set({year, month, 'date': 1}).day('Sunday').startOf('day');
@@ -42,6 +41,10 @@ function renderCalendar(year, month, customFunction){
     days.push(day);
   }
 
+  if(renderDays){
+    days = renderDays(days);
+  }
+
   return days;
 }
 
@@ -50,23 +53,20 @@ export default {
     'year': Number,
     'month': Number,
     'weekdays': Array,
-    'renderDay': Function,
-    'renderDays': Function
-  },
-  components:{
-    Modal
+    'renderDays': Function,
+    'renderContent': Function,
   },
   watch: {
     year: function(val){
-      this.days = renderCalendar(this.year, this.month);
+      this.days = renderCalendar(this.year, this.month, this.renderDays);
     },
     month: function(val){
-      this.days = renderCalendar(this.year, this.month);
+      this.days = renderCalendar(this.year, this.month, this.renderDays);
     }
   },
   data: function(){
     return {
-      'days': renderCalendar(this.year, this.month)
+      'days': renderCalendar(this.year, this.month, this.renderDays)
     };
   }
 }

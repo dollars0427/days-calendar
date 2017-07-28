@@ -1,4 +1,4 @@
-#lfs-calendar{
+#days-calendar{
   width: 100%;
   max-width: 600px;
   height: 300px;
@@ -110,6 +110,10 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     transition: all .3s ease;
     font-family: Helvetica, Arial, sans-serif;
+    color: #777;
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
   }
 
   .modal-body {

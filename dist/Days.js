@@ -73,7 +73,7 @@ module.exports =
 	__vue_exports__ = __webpack_require__(6)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(19)
+	var __vue_template__ = __webpack_require__(16)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -141,7 +141,7 @@ module.exports =
 
 
 	// module
-	exports.push([module.id, "\n#lfs-calendar {\n  width: 100%;\n  max-width: 600px;\n  height: 300px;\n  border: 1px solid #E6E6E6;\n  background-color: white;\n  margin-left: auto;\n  margin-right: auto;\n}\n@media screen and (max-width: 600px) {\n#lfs-calendar {\n      width: 80%;\n      margin-bottom: 1em;\n}\n}\n#lfs-calendar #calendar-header {\n    border: 1px solid #E6E6E6;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    position: relative;\n    text-align: center;\n}\n#lfs-calendar #calendar-header .prev {\n      position: absolute;\n      left: 10px;\n}\n#lfs-calendar #calendar-header .prev:hover {\n        color: #DDD;\n}\n#lfs-calendar #calendar-header .next {\n      position: absolute;\n      right: 10px;\n}\n#lfs-calendar #calendar-header .next:hover {\n        color: #DDD;\n}\n#lfs-calendar #calendar-body {\n    width: 100%;\n}\n#lfs-calendar #calendar-body .weekdays {\n      display: table;\n      table-layout: fixed;\n      width: 100%;\n      margin-top: 1em;\n}\n#lfs-calendar #calendar-body .weekdays .weekday {\n        width: 14.28% !important;\n        font-weight: bold;\n        display: table-cell;\n        box-sizing: border-box;\n        position: relative;\n        text-align: center;\n        text-transform: uppercase;\n}\n#lfs-calendar #calendar-body .days {\n      margin-top: 1em;\n}\n#lfs-calendar #calendar-body .days .day {\n        display: inline-block;\n        padding: 0;\n        width: 14.28% !important;\n        text-align: center;\n        margin-bottom: 10px;\n        color: #777;\n        font-size: 20px;\n        line-height: 1;\n}\n#lfs-calendar #calendar-body .days .day span:hover {\n          color: #DDD;\n}\n#lfs-calendar #calendar-body .days .last-month {\n        color: #DDD;\n}\n#calendar-modal .modal-mask {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: table;\n  transition: opacity .3s ease;\n}\n#calendar-modal .modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n#calendar-modal .modal-container {\n  width: 300px;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n#calendar-modal .modal-body {\n  margin: 20px 0;\n}\n#calendar-modal .modal-enter-active, #calendar-modal .modal-leave-active {\n  transition: opacity .3s;\n}\n#calendar-modal .modal-enter, #calendar-modal .modal-leave-active {\n  opacity: 0;\n}\n", ""]);
+	exports.push([module.id, "\n#days-calendar {\n  width: 100%;\n  max-width: 600px;\n  height: 300px;\n  border: 1px solid #E6E6E6;\n  background-color: white;\n  margin-left: auto;\n  margin-right: auto;\n}\n@media screen and (max-width: 600px) {\n#days-calendar {\n      width: 80%;\n      margin-bottom: 1em;\n}\n}\n#days-calendar #calendar-header {\n    border: 1px solid #E6E6E6;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    position: relative;\n    text-align: center;\n}\n#days-calendar #calendar-header .prev {\n      position: absolute;\n      left: 10px;\n}\n#days-calendar #calendar-header .prev:hover {\n        color: #DDD;\n}\n#days-calendar #calendar-header .next {\n      position: absolute;\n      right: 10px;\n}\n#days-calendar #calendar-header .next:hover {\n        color: #DDD;\n}\n#days-calendar #calendar-body {\n    width: 100%;\n}\n#days-calendar #calendar-body .weekdays {\n      display: table;\n      table-layout: fixed;\n      width: 100%;\n      margin-top: 1em;\n}\n#days-calendar #calendar-body .weekdays .weekday {\n        width: 14.28% !important;\n        font-weight: bold;\n        display: table-cell;\n        box-sizing: border-box;\n        position: relative;\n        text-align: center;\n        text-transform: uppercase;\n}\n#days-calendar #calendar-body .days {\n      margin-top: 1em;\n}\n#days-calendar #calendar-body .days .day {\n        display: inline-block;\n        padding: 0;\n        width: 14.28% !important;\n        text-align: center;\n        margin-bottom: 10px;\n        color: #777;\n        font-size: 20px;\n        line-height: 1;\n}\n#days-calendar #calendar-body .days .day span:hover {\n          color: #DDD;\n}\n#days-calendar #calendar-body .days .last-month {\n        color: #DDD;\n}\n#calendar-modal .modal-mask {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: table;\n  transition: opacity .3s ease;\n}\n#calendar-modal .modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n#calendar-modal .modal-container {\n  width: 300px;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n  color: #777;\n  font-size: 20px;\n  line-height: 1;\n  text-align: center;\n}\n#calendar-modal .modal-body {\n  margin: 20px 0;\n}\n#calendar-modal .modal-enter-active, #calendar-modal .modal-leave-active {\n  transition: opacity .3s;\n}\n#calendar-modal .modal-enter, #calendar-modal .modal-leave-active {\n  opacity: 0;\n}\n", ""]);
 
 	// exports
 
@@ -438,9 +438,60 @@ module.exports =
 
 	var _Header2 = _interopRequireDefault(_Header);
 
+	var _Body = __webpack_require__(13);
+
+	var _Body2 = _interopRequireDefault(_Body);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
 	exports.default = {
+	  components: {
+	    CalendarBody: _Body2.default,
+	    CalendarHeader: _Header2.default
+	  },
 	  props: {
 	    'weekdays': {
 	      'type': Array,
@@ -456,19 +507,32 @@ module.exports =
 	      type: Function
 	    }
 	  },
-	  components: {
-	    CalendarHeader: _Header2.default
+	  methods: {
+	    getYearMonth: function getYearMonth(year, month) {
+	      this.year = year;
+	      this.month = month;
+	    },
+	    renderContent: function renderContent(day) {
+	      this.showModal = true;
+
+	      if (this.renderDay) {
+	        day = this.renderDay(day);
+	      }
+	      this.day = day;
+	    },
+	    close: function close() {
+	      this.showModal = false;
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      year: 2017,
+	      month: 1,
+	      day: { 'number': 1 },
+	      showModal: false
+	    };
 	  }
-	}; //
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
+	};
 
 /***/ }),
 /* 7 */
@@ -481,7 +545,7 @@ module.exports =
 	__vue_exports__ = __webpack_require__(8)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(18)
+	var __vue_template__ = __webpack_require__(12)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -528,14 +592,9 @@ module.exports =
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _Body = __webpack_require__(12);
-
-	var _Body2 = _interopRequireDefault(_Body);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	//
-	//
+	var date = (0, _moment2.default)(); //
 	//
 	//
 	//
@@ -547,23 +606,20 @@ module.exports =
 	//
 	//
 
-	var date = (0, _moment2.default)();
 	var month = (0, _moment2.default)().month();
 	var monthName = (0, _moment2.default)().format('MMM');
 	var year = (0, _moment2.default)().year();
 
 	exports.default = {
 	  props: {
-	    'weekdays': Array,
-	    'renderDay': Function,
-	    'renderDays': Function
-	  },
-	  components: {
-	    CalendarBody: _Body2.default
+	    'getYearMonth': Function
 	  },
 	  data: function data() {
 	    var data = { 'month': month, 'monthName': monthName, 'year': year };
 	    return data;
+	  },
+	  created: function created() {
+	    this.getYearMonth(this.year, this.month);
 	  },
 	  methods: {
 	    nextDate: function nextDate() {
@@ -571,6 +627,7 @@ module.exports =
 	      this.year = date.year();
 	      this.month = date.month();
 	      this.monthName = (0, _moment2.default)().month(this.month).format('MMM');
+	      this.getYearMonth(this.year, this.month);
 	    },
 
 	    prevDate: function prevDate() {
@@ -578,6 +635,7 @@ module.exports =
 	      this.year = date.year();
 	      this.month = date.month();
 	      this.monthName = (0, _moment2.default)().month(this.month).format('MMM');
+	      this.getYearMonth(this.year, this.month);
 	    }
 	  }
 	};
@@ -5085,14 +5143,48 @@ module.exports =
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    staticClass: "calendar-wrapper"
+	  }, [_c('div', {
+	    attrs: {
+	      "id": "calendar-header"
+	    }
+	  }, [_c('span', {
+	    staticClass: "prev",
+	    on: {
+	      "click": _vm.prevDate
+	    }
+	  }, [_vm._v("❮")]), _vm._v(" "), _c('span', {
+	    staticClass: "next",
+	    on: {
+	      "click": _vm.nextDate
+	    }
+	  }, [_vm._v("❯")]), _vm._v(" "), _c('span', {
+	    staticClass: "month"
+	  }, [_vm._v(_vm._s(_vm.monthName))]), _vm._v(" "), _c('span', {
+	    staticClass: "year"
+	  }, [_vm._v(_vm._s(_vm.year))])])])
+	},staticRenderFns: []}
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-65b31144", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 
 	/* script */
-	__vue_exports__ = __webpack_require__(13)
+	__vue_exports__ = __webpack_require__(14)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(17)
+	var __vue_template__ = __webpack_require__(15)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -5126,7 +5218,7 @@ module.exports =
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5139,31 +5231,9 @@ module.exports =
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _Modal = __webpack_require__(14);
-
-	var _Modal2 = _interopRequireDefault(_Modal);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-
-	function renderCalendar(year, month, customFunction) {
+	function renderCalendar(year, month, renderDays) {
 	  var days = [];
 	  var monthStart = new _moment2.default().set({ year: year, month: month, 'date': 1 }).startOf('day');
 	  var lastSunday = new _moment2.default().set({ year: year, month: month, 'date': 1 }).day('Sunday').startOf('day');
@@ -5186,192 +5256,54 @@ module.exports =
 	    days.push(_day);
 	  }
 
+	  if (renderDays) {
+	    days = renderDays(days);
+	  }
+
 	  return days;
-	}
+	} //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 	exports.default = {
 	  props: {
 	    'year': Number,
 	    'month': Number,
 	    'weekdays': Array,
-	    'renderDay': Function,
-	    'renderDays': Function
-	  },
-	  components: {
-	    Modal: _Modal2.default
+	    'renderDays': Function,
+	    'renderContent': Function
 	  },
 	  watch: {
 	    year: function year(val) {
-	      this.days = renderCalendar(this.year, this.month);
+	      this.days = renderCalendar(this.year, this.month, this.renderDays);
 	    },
 	    month: function month(val) {
-	      this.days = renderCalendar(this.year, this.month);
+	      this.days = renderCalendar(this.year, this.month, this.renderDays);
 	    }
 	  },
 	  data: function data() {
 	    return {
-	      'days': renderCalendar(this.year, this.month)
+	      'days': renderCalendar(this.year, this.month, this.renderDays)
 	    };
 	  }
 	};
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var __vue_exports__, __vue_options__
-	var __vue_styles__ = {}
-
-	/* script */
-	__vue_exports__ = __webpack_require__(15)
-
-	/* template */
-	var __vue_template__ = __webpack_require__(16)
-	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-	if (
-	  typeof __vue_exports__.default === "object" ||
-	  typeof __vue_exports__.default === "function"
-	) {
-	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-	__vue_options__ = __vue_exports__ = __vue_exports__.default
-	}
-	if (typeof __vue_options__ === "function") {
-	  __vue_options__ = __vue_options__.options
-	}
-	__vue_options__.__file = "/Users/sardo/work/non-project/days-calendar/src/components/Modal.vue"
-	__vue_options__.render = __vue_template__.render
-	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-
-	/* hot reload */
-	if (false) {(function () {
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  module.hot.accept()
-	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-dd7a9774", __vue_options__)
-	  } else {
-	    hotAPI.reload("data-v-dd7a9774", __vue_options__)
-	  }
-	})()}
-	if (__vue_options__.functional) {console.error("[vue-loader] Modal.vue: functional components are not supported and should be defined in plain js files using render functions.")}
-
-	module.exports = __vue_exports__
-
-
-/***/ }),
 /* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _moment = __webpack_require__(9);
-
-	var _moment2 = _interopRequireDefault(_moment);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = {
-	  props: {
-	    'day': Object,
-	    'renderDay': Function
-	  },
-	  methods: {
-	    renderContent: function renderContent() {
-	      this.showModal = true;
-
-	      if (this.renderDay) {
-	        this.renderDay(day);
-	      }
-	    },
-	    close: function close() {
-	      this.showModal = false;
-	    }
-	  },
-	  data: function data() {
-	    return {
-	      showModal: false
-	    };
-	  }
-	}; //
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    attrs: {
-	      "id": "calendar-modal"
-	    }
-	  }, [_c('span', {
-	    class: _vm.day.class,
-	    on: {
-	      "click": _vm.renderContent
-	    }
-	  }, [_vm._v(_vm._s(_vm.day.number))]), _vm._v(" "), _c('transition', {
-	    attrs: {
-	      "name": "modal"
-	    }
-	  }, [(_vm.showModal) ? _c('div', [_c('div', {
-	    staticClass: "modal-mask",
-	    on: {
-	      "click": _vm.close
-	    }
-	  }, [_c('div', {
-	    staticClass: "modal-wrapper"
-	  }, [_c('div', {
-	    staticClass: "modal-container"
-	  }, [_c('div', {
-	    staticClass: "modal-header"
-	  }, [_vm._v("\n                " + _vm._s(_vm.day.date.format('LL')) + "\n            ")]), _vm._v(" "), _c('div', {
-	    staticClass: "modal-body"
-	  }, [(_vm.day.content) ? _c('div', [_c('div', {
-	    domProps: {
-	      "innerHTML": _vm._s(_vm.day.content)
-	    }
-	  })]) : _c('div', [_vm._v("\n                No events.\n              ")])])])])])]) : _vm._e()])], 1)
-	},staticRenderFns: []}
-	if (false) {
-	  module.hot.accept()
-	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-dd7a9774", module.exports)
-	  }
-	}
-
-/***/ }),
-/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5390,12 +5322,14 @@ module.exports =
 	  }, _vm._l((_vm.days), function(day) {
 	    return _c('div', {
 	      staticClass: "day"
-	    }, [_c('Modal', {
-	      attrs: {
-	        "renderDay": _vm.renderDay,
-	        "day": day
+	    }, [_c('span', {
+	      class: day.class,
+	      on: {
+	        "click": function($event) {
+	          _vm.renderContent(day)
+	        }
 	      }
-	    })], 1)
+	    }, [_vm._v(_vm._s(day.number))])])
 	  }))])
 	},staticRenderFns: []}
 	if (false) {
@@ -5406,63 +5340,55 @@ module.exports =
 	}
 
 /***/ }),
-/* 18 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
-	    staticClass: "calendar-wrapper"
+	    staticClass: "calendar-conatiner"
 	  }, [_c('div', {
 	    attrs: {
-	      "id": "calendar-header"
+	      "id": "days-calendar"
 	    }
-	  }, [_c('span', {
-	    staticClass: "prev",
-	    on: {
-	      "click": _vm.prevDate
-	    }
-	  }, [_vm._v("❮")]), _vm._v(" "), _c('span', {
-	    staticClass: "next",
-	    on: {
-	      "click": _vm.nextDate
-	    }
-	  }, [_vm._v("❯")]), _vm._v(" "), _c('span', {
-	    staticClass: "month"
-	  }, [_vm._v(_vm._s(_vm.monthName))]), _vm._v(" "), _c('span', {
-	    staticClass: "year"
-	  }, [_vm._v(_vm._s(_vm.year))])]), _vm._v(" "), _c('CalendarBody', {
-	    attrs: {
-	      "weekdays": _vm.weekdays,
-	      "year": _vm.year,
-	      "month": _vm.month,
-	      "renderDay": _vm.renderDay,
-	      "renderDays": _vm.renderDays
-	    }
-	  })], 1)
-	},staticRenderFns: []}
-	if (false) {
-	  module.hot.accept()
-	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-65b31144", module.exports)
-	  }
-	}
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    attrs: {
-	      "id": "lfs-calendar"
-	    }
+	  }, [_c('div', {
+	    staticClass: "calendar-wrapper"
 	  }, [_c('CalendarHeader', {
 	    attrs: {
-	      "weekdays": _vm.weekdays,
-	      "renderDay": _vm.renderDay,
-	      "renderDays": _vm.renderDays
+	      "getYearMonth": _vm.getYearMonth
 	    }
-	  })], 1)
+	  }), _vm._v(" "), _c('CalendarBody', {
+	    attrs: {
+	      "renderContent": _vm.renderContent,
+	      "renderDays": _vm.renderDays,
+	      "month": _vm.month,
+	      "year": _vm.year
+	    }
+	  })], 1)]), _vm._v(" "), _c('div', {
+	    attrs: {
+	      "id": "calendar-modal"
+	    }
+	  }, [_c('transition', {
+	    attrs: {
+	      "name": "modal"
+	    }
+	  }, [(_vm.showModal) ? _c('div', [_c('div', {
+	    staticClass: "modal-mask",
+	    on: {
+	      "click": _vm.close
+	    }
+	  }, [_c('div', {
+	    staticClass: "modal-wrapper"
+	  }, [_c('div', {
+	    staticClass: "modal-container"
+	  }, [_vm._t("modal-content", [_c('div', {
+	    staticClass: "modal-header"
+	  }, [_vm._v("\n                  " + _vm._s(_vm.day.date.format('LL')) + "\n                ")]), _vm._v(" "), _c('div', {
+	    staticClass: "modal-body"
+	  }, [(_vm.day.content) ? _c('div', [_c('div', {
+	    domProps: {
+	      "innerHTML": _vm._s(_vm.day.content)
+	    }
+	  })]) : _c('div', [_vm._v("\n                    No events.\n                  ")])])])], 2)])])]) : _vm._e()])], 1)])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()

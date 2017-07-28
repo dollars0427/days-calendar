@@ -24,6 +24,10 @@ yarn add days-calendar
 
 ## Usage
 
+Import module from days-calendar, then register it to Vue:
+
+#### Base
+
 ```js
 import DaysCalendar from 'days-calendar';
 
@@ -34,6 +38,39 @@ new Vue({
    }
 })
 ```
+#### Custom Modal
+
+By default, Days Calendar will show a modal which contain event content. If you want to custom the template of modal, you can call calendar like this:
+
+ ```html
+    <Calendar>
+      <div slot="modal-content">
+        <h1>Hello World!</h1>
+      </div>
+    </Calendar>
+ 
+ ```
+ 
+ If you want to using day object in custom modal,
+ you should pass renderDay function to calendar like this:
+ 
+ ```html
+<Calendar :renderDay="getDate">
+  <div slot="modal-content">
+    {{day.content}}
+  </div>
+</Calendar>
+ ```
+ 
+ ```js
+ getDate: function(day){
+   this.day = day;
+   return day;
+ }
+ ```
+ 
+ or you will not be allow to access the information of day.
+ 
 
 ## Props
 #### weekdays (optional)
@@ -44,18 +81,21 @@ Default value: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 #### renderDay (optional)
 If you pass this props to Days Calendar, it will pass day object to the function before render the content.
 
+This function should return a day object array.
+
 ```js
 renderDay(day){
   console.log(day);
+  return day;
 }
 
-/* Output will be:
-First Day: { number: (Number of that day), date: (Moment Date Object), class: [] } */
+/* Day object:
+{ number: (Number of that day), date: (Moment Date Object), class: [] } */
 ```
 
 #### renderDays (optional)
 If you pass this props to Days Calendar, it will pass the array of day object to the function before render the content.
-It should return a day object array.
+This function should return a day object array.
 
 ```js
 renderDays(days){

@@ -6,13 +6,11 @@
       <span class="month">{{ monthName }}</span>
       <span class="year">{{ year }}</span>
     </div>
-    <CalendarBody :weekdays="weekdays" :year="year" :month="month" :renderDay="renderDay" :renderDays="renderDays"></CalendarBody>
   </div>
 </template>
 
 <script>
 import moment from 'moment';
-import CalendarBody from './Body.vue';
 
 const date = moment();
 const month = moment().month();
@@ -21,16 +19,14 @@ const year = moment().year();
 
 export default {
   props:{
-    'weekdays':Array,
-    'renderDay': Function,
-    'renderDays': Function,
-  },
-  components:{
-    CalendarBody
+    'getYearMonth': Function
   },
   data: function(){
     const data  = {'month': month , 'monthName': monthName, 'year': year}
     return data;
+  },
+  created: function(){
+    this.getYearMonth(this.year, this.month);
   },
   methods: {
     nextDate: function () {
@@ -38,6 +34,7 @@ export default {
       this.year = date.year();
       this.month = date.month();
       this.monthName = moment().month(this.month).format('MMM');
+      this.getYearMonth(this.year, this.month);
     },
 
     prevDate: function(){
@@ -45,6 +42,7 @@ export default {
       this.year = date.year();
       this.month = date.month();
       this.monthName = moment().month(this.month).format('MMM');
+      this.getYearMonth(this.year, this.month);
     },
   },
 }
