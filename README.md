@@ -48,12 +48,12 @@ By default, Days Calendar will show a modal which contain event content. If you 
         <h1>Hello World!</h1>
       </div>
     </Calendar>
- 
+
  ```
- 
+
  If you want to using day object in custom modal,
  you should pass renderDay function to calendar like this:
- 
+
  ```html
 <Calendar :renderDay="getDate">
   <div slot="modal-content">
@@ -61,16 +61,37 @@ By default, Days Calendar will show a modal which contain event content. If you 
   </div>
 </Calendar>
  ```
- 
+
  ```js
  getDate: function(day){
    this.day = day;
    return day;
  }
  ```
- 
+
  or you will not be allow to access the information of day.
- 
+
+
+ ### Disable Day
+
+ If you don't want user click on some day, you can pass renderDays function to calendar like this:
+
+ ```html
+<Calendar :renderDays="renderDays"></Calendar>
+ ```
+
+ ```js
+ renderDays: function(days){
+   for(let i = 0; i < days.length; i++){
+     const weekday = days[i].date.weekday();
+     //If it is Tuesday, disable it
+     if(weekday == 2){
+       days[i].disabled = true;
+     }
+   }
+   return days;
+ },
+ ```
 
 ## Props
 #### weekdays (optional)
