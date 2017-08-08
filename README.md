@@ -125,6 +125,16 @@ renderDays(days){
 }
 ```
 
+#### onClick (optional)
+If you pass this props to Days Calendar, it will pass the day object to the function before render the content.
+It will allow you control the behavior after click on any day.
+
+```js
+onClick(day){
+  console.log('This day is:', day);
+}
+```
+
 ## Contributing
 
 You can clone this repository then start develop at sandbox, or feel free to open issue on github.
