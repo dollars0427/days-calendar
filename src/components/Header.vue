@@ -1,6 +1,6 @@
 <template>
   <div class="calendar-wrapper">
-    <div id="calendar-header">
+    <div class="calendar-header">
       <span class="prev" v-on:click="prevDate">&#10094;</span>
       <span class="next" v-on:click="nextDate">&#10095;</span>
       <span class="month">{{ monthName }}</span>

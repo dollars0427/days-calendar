@@ -1,4 +1,4 @@
-#days-calendar{
+.days-calendar{
   width: 100%;
   max-width: 600px;
   height: 300px;
@@ -12,7 +12,7 @@
     margin-bottom: 1em;
   }
 
-  #calendar-header{
+  .calendar-header{
     border: 1px solid #E6E6E6;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -38,7 +38,7 @@
     }
   }
 
-  #calendar-body{
+  .calendar-body{
     width: 100%;
 
     .weekdays{

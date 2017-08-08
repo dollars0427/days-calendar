@@ -1,6 +1,6 @@
 <template>
   <div class="calendar-conatiner">
-    <div id="days-calendar">
+    <div class="days-calendar">
       <div class="calendar-wrapper">
         <CalendarHeader :getYearMonth="getYearMonth"></CalendarHeader>
         <CalendarBody :weekdays="weekdays" :renderContent="renderContent" :renderDays="renderDays" :month="month" :year="year"></CalendarBody>
@@ -57,6 +57,9 @@
             return weekdays;
           }
         },
+        'onClick':{
+          'type': Function,
+        },
         'renderDay':{
           type: Function
         },
@@ -70,12 +73,16 @@
           this.month = month;
         },
         renderContent: function(day){
-          this.showModal = true;
-
           if(this.renderDay){
             day = this.renderDay(day);
           }
-          this.day = day;
+
+          if(this.onClick){
+            this.onClick(day);
+          }else{
+            this.day = day;
+            this.showModal = true;
+          }
         },
         close: function(){
           this.showModal = false;
