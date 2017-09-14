@@ -116,12 +116,15 @@ renderDay(day){
 
 #### renderDays (optional)
 If you pass this props to Days Calendar, it will pass the array of day object to the function before render the content.
-This function should return a day object array.
+
+This function should return promise which resolve days array or error.
 
 ```js
 renderDays(days){
-  console.log(days);
-  return days;
+  return new Promise((resolve, reject) => {
+     //Do something
+     resolve(days);
+  });
 }
 ```
 
