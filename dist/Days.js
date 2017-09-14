@@ -5241,10 +5241,10 @@ module.exports =
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function renderCalendar(year, month, renderDays) {
+	function renderCalendar(data) {
 	  var days = [];
-	  var monthStart = new _moment2.default().set({ year: year, month: month, 'date': 1 }).startOf('day');
-	  var lastSunday = new _moment2.default().set({ year: year, month: month, 'date': 1 }).day('Sunday').startOf('day');
+	  var monthStart = new _moment2.default().set({ year: data.year, month: data.month, 'date': 1 }).startOf('day');
+	  var lastSunday = new _moment2.default().set({ year: data.year, month: data.month, 'date': 1 }).day('Sunday').startOf('day');
 	  var additonDays = monthStart.diff(lastSunday, 'days') - 1;
 
 	  if (additonDays !== -1) {
@@ -5259,16 +5259,20 @@ module.exports =
 	  var monthLength = monthStart.endOf('month').date();
 
 	  for (var _i = 1; _i <= monthLength; _i++) {
-	    var _date = new _moment2.default().set({ year: year, month: month, 'date': _i }).startOf('day');
+	    var _date = new _moment2.default().set({ year: data.year, month: data.month, 'date': _i }).startOf('day');
 	    var _day = { number: _i, date: _date, class: [] };
 	    days.push(_day);
 	  }
 
-	  if (renderDays) {
-	    days = renderDays(days);
+	  if (data.renderDays) {
+	    data.renderDays(data.year, data.month, days).then(function (days) {
+	      data.days = days;
+	    }).catch(function (err) {
+	      return reject(err);
+	    });
+	  } else {
+	    data.days = days;
 	  }
-
-	  return days;
 	} //
 	//
 	//
@@ -5296,17 +5300,23 @@ module.exports =
 	    'renderDays': Function,
 	    'renderContent': Function
 	  },
+	  created: function created() {
+	    var data = this;
+	    renderCalendar(data);
+	  },
 	  watch: {
 	    year: function year(val) {
-	      this.days = renderCalendar(this.year, this.month, this.renderDays);
+	      var data = this;
+	      renderCalendar(data);
 	    },
 	    month: function month(val) {
-	      this.days = renderCalendar(this.year, this.month, this.renderDays);
+	      var data = this;
+	      renderCalendar(data);
 	    }
 	  },
 	  data: function data() {
 	    return {
-	      'days': renderCalendar(this.year, this.month, this.renderDays)
+	      'days': []
 	    };
 	  }
 	};
