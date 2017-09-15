@@ -434,7 +434,11 @@ module.exports =
 	  value: true
 	});
 
-	var _Header = __webpack_require__(7);
+	var _moment = __webpack_require__(7);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	var _Header = __webpack_require__(10);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
@@ -443,49 +447,6 @@ module.exports =
 	var _Body2 = _interopRequireDefault(_Body);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
 
 	exports.default = {
 	  components: {
@@ -536,122 +497,57 @@ module.exports =
 	  },
 	  data: function data() {
 	    return {
-	      year: 2017,
-	      month: 1,
+	      year: parseInt((0, _moment2.default)().format('YYYY')),
+	      month: parseInt((0, _moment2.default)().format('MM')),
 	      day: { 'number': 1 },
 	      showModal: false
 	    };
 	  }
-	};
+	}; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 /***/ }),
 /* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var __vue_exports__, __vue_options__
-	var __vue_styles__ = {}
-
-	/* script */
-	__vue_exports__ = __webpack_require__(8)
-
-	/* template */
-	var __vue_template__ = __webpack_require__(12)
-	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-	if (
-	  typeof __vue_exports__.default === "object" ||
-	  typeof __vue_exports__.default === "function"
-	) {
-	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-	__vue_options__ = __vue_exports__ = __vue_exports__.default
-	}
-	if (typeof __vue_options__ === "function") {
-	  __vue_options__ = __vue_options__.options
-	}
-	__vue_options__.__file = "/Users/sardo/work/non-project/days-calendar/src/components/Header.vue"
-	__vue_options__.render = __vue_template__.render
-	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-
-	/* hot reload */
-	if (false) {(function () {
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  module.hot.accept()
-	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-65b31144", __vue_options__)
-	  } else {
-	    hotAPI.reload("data-v-65b31144", __vue_options__)
-	  }
-	})()}
-	if (__vue_options__.functional) {console.error("[vue-loader] Header.vue: functional components are not supported and should be defined in plain js files using render functions.")}
-
-	module.exports = __vue_exports__
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _moment = __webpack_require__(9);
-
-	var _moment2 = _interopRequireDefault(_moment);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var date = (0, _moment2.default)(); //
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-
-	var month = (0, _moment2.default)().month();
-	var monthName = (0, _moment2.default)().format('MMM');
-	var year = (0, _moment2.default)().year();
-
-	exports.default = {
-	  props: {
-	    'getYearMonth': Function
-	  },
-	  data: function data() {
-	    var data = { 'month': month, 'monthName': monthName, 'year': year };
-	    return data;
-	  },
-	  created: function created() {
-	    this.getYearMonth(this.year, this.month);
-	  },
-	  methods: {
-	    nextDate: function nextDate() {
-	      date.add(1, 'M');
-	      this.year = date.year();
-	      this.month = date.month();
-	      this.monthName = (0, _moment2.default)().month(this.month).format('MMM');
-	      this.getYearMonth(this.year, this.month);
-	    },
-
-	    prevDate: function prevDate() {
-	      date.subtract(1, 'M');
-	      this.year = date.year();
-	      this.month = date.month();
-	      this.monthName = (0, _moment2.default)().month(this.month).format('MMM');
-	      this.getYearMonth(this.year, this.month);
-	    }
-	  }
-	};
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {//! moment.js
@@ -5118,10 +5014,10 @@ module.exports =
 
 	})));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)(module)))
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, exports) {
 
 	module.exports = function(module) {
@@ -5137,7 +5033,7 @@ module.exports =
 
 
 /***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, exports) {
 
 	function webpackContext(req) {
@@ -5146,8 +5042,114 @@ module.exports =
 	webpackContext.keys = function() { return []; };
 	webpackContext.resolve = webpackContext;
 	module.exports = webpackContext;
-	webpackContext.id = 11;
+	webpackContext.id = 9;
 
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* script */
+	__vue_exports__ = __webpack_require__(11)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(12)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/sardo/work/non-project/days-calendar/src/components/Header.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-65b31144", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-65b31144", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] Header.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _moment = __webpack_require__(7);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var date = (0, _moment2.default)(); //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	var month = (0, _moment2.default)().month();
+	var monthName = (0, _moment2.default)().format('MMM');
+	var year = (0, _moment2.default)().year();
+
+	exports.default = {
+	  props: {
+	    'getYearMonth': Function
+	  },
+	  data: function data() {
+	    var data = { 'month': month, 'monthName': monthName, 'year': year };
+	    return data;
+	  },
+	  created: function created() {
+	    this.getYearMonth(this.year, this.month);
+	  },
+	  methods: {
+	    nextDate: function nextDate() {
+	      date.add(1, 'M');
+	      this.year = date.year();
+	      this.month = date.month();
+	      this.monthName = (0, _moment2.default)().month(this.month).format('MMM');
+	      this.getYearMonth(this.year, this.month);
+	    },
+
+	    prevDate: function prevDate() {
+	      date.subtract(1, 'M');
+	      this.year = date.year();
+	      this.month = date.month();
+	      this.monthName = (0, _moment2.default)().month(this.month).format('MMM');
+	      this.getYearMonth(this.year, this.month);
+	    }
+	  }
+	};
 
 /***/ }),
 /* 12 */
@@ -5235,7 +5237,7 @@ module.exports =
 	  value: true
 	});
 
-	var _moment = __webpack_require__(9);
+	var _moment = __webpack_require__(7);
 
 	var _moment2 = _interopRequireDefault(_moment);
 

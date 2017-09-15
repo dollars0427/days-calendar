@@ -41,6 +41,7 @@
     </style>
 
     <script>
+    import moment from 'moment';
     import CalendarHeader from './Header.vue';
     import CalendarBody from './Body.vue';
 
@@ -93,8 +94,8 @@
       },
       data: function(){
         return {
-          year: 2017,
-          month: 1,
+          year: parseInt(moment().format('YYYY')),
+          month: parseInt(moment().format('MM')),
           day : {'number': 1} ,
           showModal: false
         };
