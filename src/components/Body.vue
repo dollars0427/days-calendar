@@ -9,8 +9,12 @@
 
   <div class="days">
     <div class="day" v-for="day in days">
-      <span class="disabled" v-if="day.disabled">{{day.number}}</span>
-      <span v-else :class="day.class" v-on:click="renderContent(day)">{{day.number}}</span>
+      <div class="disabled" v-if="day.disabled">
+        <span>{{day.number}}</span>
+      </div>
+      <div v-else :class="day.class" v-on:click="renderContent(day)">
+        <span>{{day.number}}</span>
+      </div>
     </div>
   </div>
 </div>

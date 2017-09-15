@@ -1,6 +1,6 @@
 {
   "name": "days-calendar",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": "Mr.Twister<sardo.ip@sardo.work>",
   "license": "MIT",
   "description": "Simple and customizable calender components for Vue",

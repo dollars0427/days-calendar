@@ -22,6 +22,7 @@
     .prev{
       position: absolute;
       left:10px;
+      cursor:pointer;
 
       &:hover{
         color:#DDD;
@@ -31,6 +32,7 @@
     .next{
       position: absolute;
       right:10px;
+      cursor:pointer;
 
       &:hover{
         color:#DDD;
@@ -72,12 +74,12 @@
         line-height: 1;
         cursor:pointer;
 
-        span:hover{
+        div:hover{
           color:#DDD;
         }
       }
 
-      span.disabled{
+      div.disabled{
         color: #DDD;
         cursor:not-allowed;
       }
