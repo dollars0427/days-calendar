@@ -51,7 +51,10 @@ function renderCalendar(data){
     .then((days) =>{
       data.days = days;
     })
-    .catch(err => reject(err));
+    .catch(err => {
+      reject(err);
+      data.days = days;
+    });
   }else{
     data.days = days;
   }

@@ -5270,7 +5270,8 @@ module.exports =
 	    data.renderDays(data.year, data.month, days).then(function (days) {
 	      data.days = days;
 	    }).catch(function (err) {
-	      return reject(err);
+	      reject(err);
+	      data.days = days;
 	    });
 	  } else {
 	    data.days = days;
