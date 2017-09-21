@@ -68,7 +68,7 @@ export default {
     'renderDays': Function,
     'renderContent': Function,
   },
-  created: function(){
+  mounthed: function(){
     const data = this;
     renderCalendar(data);
   },

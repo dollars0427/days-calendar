@@ -5307,7 +5307,7 @@ module.exports =
 	    'renderDays': Function,
 	    'renderContent': Function
 	  },
-	  created: function created() {
+	  mounthed: function mounthed() {
 	    var data = this;
 	    renderCalendar(data);
 	  },
