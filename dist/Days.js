@@ -498,7 +498,7 @@ module.exports =
 	  data: function data() {
 	    return {
 	      year: parseInt((0, _moment2.default)().format('YYYY')),
-	      month: parseInt((0, _moment2.default)().format('MM')),
+	      month: parseInt((0, _moment2.default)().format('MM')) + 1,
 	      day: { 'number': 1 },
 	      showModal: false
 	    };

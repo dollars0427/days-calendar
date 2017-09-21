@@ -95,7 +95,7 @@
       data: function(){
         return {
           year: parseInt(moment().format('YYYY')),
-          month: parseInt(moment().format('MM')),
+          month: parseInt(moment().format('MM')) + 1,
           day : {'number': 1} ,
           showModal: false
         };
