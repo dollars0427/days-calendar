@@ -120,7 +120,7 @@ If you pass this props to Days Calendar, it will pass the array of day object to
 This function should return promise which resolve days array or error.
 
 ```js
-renderDays(days){
+renderDays(year, month, days){
   return new Promise((resolve, reject) => {
      //Do something
      resolve(days);

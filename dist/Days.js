@@ -5243,10 +5243,10 @@ module.exports =
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function renderCalendar(data) {
+	function renderCalendar(year, month) {
 	  var days = [];
-	  var monthStart = new _moment2.default().set({ year: data.year, month: data.month, 'date': 1 }).startOf('day');
-	  var lastSunday = new _moment2.default().set({ year: data.year, month: data.month, 'date': 1 }).day('Sunday').startOf('day');
+	  var monthStart = new _moment2.default().set({ year: year, month: month, 'date': 1 }).startOf('day');
+	  var lastSunday = new _moment2.default().set({ year: year, month: month, 'date': 1 }).day('Sunday').startOf('day');
 	  var additonDays = monthStart.diff(lastSunday, 'days') - 1;
 
 	  if (additonDays !== -1) {
@@ -5261,21 +5261,11 @@ module.exports =
 	  var monthLength = monthStart.endOf('month').date();
 
 	  for (var _i = 1; _i <= monthLength; _i++) {
-	    var _date = new _moment2.default().set({ year: data.year, month: data.month, 'date': _i }).startOf('day');
+	    var _date = new _moment2.default().set({ year: year, month: month, 'date': _i }).startOf('day');
 	    var _day = { number: _i, date: _date, class: [] };
 	    days.push(_day);
 	  }
-
-	  if (data.renderDays) {
-	    data.renderDays(data.year, data.month, days).then(function (days) {
-	      data.days = days;
-	    }).catch(function (err) {
-	      reject(err);
-	      data.days = days;
-	    });
-	  } else {
-	    data.days = days;
-	  }
+	  return days;
 	} //
 	//
 	//
@@ -5307,18 +5297,26 @@ module.exports =
 	    'renderDays': Function,
 	    'renderContent': Function
 	  },
-	  mounthed: function mounthed() {
-	    var data = this;
-	    renderCalendar(data);
+	  methods: {
+	    updateCalender: function updateCalender() {
+	      var _this = this;
+
+	      this.days = renderCalendar(this.year, this.month);
+	      if (this.renderDays) {
+	        this.renderDays(this.year, this.month, this.days).then(function (days) {
+	          _this.days = days;
+	        }).catch(function (err) {
+	          reject(err);
+	        });
+	      }
+	    }
 	  },
 	  watch: {
 	    year: function year(val) {
-	      var data = this;
-	      renderCalendar(data);
+	      this.updateCalender();
 	    },
 	    month: function month(val) {
-	      var data = this;
-	      renderCalendar(data);
+	      this.updateCalender();
 	    }
 	  },
 	  data: function data() {
