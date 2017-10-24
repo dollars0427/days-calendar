@@ -5250,10 +5250,10 @@ module.exports =
 	  var additonDays = monthStart.diff(lastSunday, 'days') - 1;
 
 	  if (additonDays !== -1) {
-	    days.push({ number: lastSunday.date(), date: new _moment2.default(lastSunday), class: [], disabled: true });
+	    days.push({ number: lastSunday.date(), date: new _moment2.default(lastSunday), class: ['disabled'], disabled: true });
 	    for (var i = additonDays; i !== 0; i--) {
 	      var date = new _moment2.default(lastSunday.add(1, 'days'));
-	      var day = { number: date.date(), date: date, class: [], disabled: true };
+	      var day = { number: date.date(), date: date, class: ['disabled'], disabled: true };
 	      days.push(day);
 	    }
 	  }
@@ -5345,7 +5345,7 @@ module.exports =
 	    return _c('div', {
 	      staticClass: "day"
 	    }, [(day.disabled) ? _c('div', {
-	      staticClass: "disabled"
+	      class: day.class
 	    }, [_c('span', [_vm._v(_vm._s(day.number))])]) : _c('div', {
 	      class: day.class,
 	      on: {
