@@ -141,7 +141,7 @@ module.exports =
 
 
 	// module
-	exports.push([module.id, "\n.days-calendar {\n  width: 100%;\n  max-width: 600px;\n  height: 300px;\n  border: 1px solid #E6E6E6;\n  background-color: white;\n  margin-left: auto;\n  margin-right: auto;\n}\n@media screen and (max-width: 600px) {\n.days-calendar {\n      width: 80%;\n      margin-bottom: 1em;\n}\n}\n.days-calendar .calendar-header {\n    border: 1px solid #E6E6E6;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    position: relative;\n    text-align: center;\n}\n.days-calendar .calendar-header .prev {\n      position: absolute;\n      left: 10px;\n      cursor: pointer;\n}\n.days-calendar .calendar-header .prev:hover {\n        color: #DDD;\n}\n.days-calendar .calendar-header .next {\n      position: absolute;\n      right: 10px;\n      cursor: pointer;\n}\n.days-calendar .calendar-header .next:hover {\n        color: #DDD;\n}\n.days-calendar .calendar-body {\n    width: 100%;\n}\n.days-calendar .calendar-body .weekdays {\n      display: table;\n      table-layout: fixed;\n      width: 100%;\n      margin-top: 1em;\n}\n.days-calendar .calendar-body .weekdays .weekday {\n        width: 14.28% !important;\n        font-weight: bold;\n        display: table-cell;\n        box-sizing: border-box;\n        position: relative;\n        text-align: center;\n        text-transform: uppercase;\n}\n.days-calendar .calendar-body .days {\n      margin-top: 1em;\n}\n.days-calendar .calendar-body .days .day {\n        display: inline-block;\n        padding: 0;\n        width: 14.28% !important;\n        text-align: center;\n        margin-bottom: 10px;\n        color: #777;\n        font-size: 20px;\n        line-height: 1;\n        cursor: pointer;\n}\n.days-calendar .calendar-body .days .day div:hover {\n          color: #DDD;\n}\n.days-calendar .calendar-body .days div.disabled {\n        color: #DDD;\n        cursor: not-allowed;\n}\n.calendar-modal .modal-mask {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: table;\n  transition: opacity .3s ease;\n}\n.calendar-modal .modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.calendar-modal .modal-container {\n  width: 300px;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n  color: #777;\n  font-size: 20px;\n  line-height: 1;\n  text-align: center;\n}\n.calendar-modal .modal-body {\n  margin: 20px 0;\n}\n.calendar-modal .modal-enter-active, .calendar-modal .modal-leave-active {\n  transition: opacity .3s;\n}\n.calendar-modal .modal-enter, .calendar-modal .modal-leave-active {\n  opacity: 0;\n}\n", ""]);
+	exports.push([module.id, "\n.days-calendar {\n  width: 100%;\n  max-width: 600px;\n  height: 300px;\n  border: 1px solid #E6E6E6;\n  background-color: white;\n  margin-left: auto;\n  margin-right: auto;\n}\n@media screen and (max-width: 600px) {\n.days-calendar {\n      width: 80%;\n      margin-bottom: 1em;\n}\n}\n.days-calendar .calendar-header {\n    border: 1px solid #E6E6E6;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    position: relative;\n    text-align: center;\n}\n.days-calendar .calendar-header .prev {\n      position: absolute;\n      left: 10px;\n      cursor: pointer;\n}\n.days-calendar .calendar-header .prev:hover {\n        color: #DDD;\n}\n.days-calendar .calendar-header .next {\n      position: absolute;\n      right: 10px;\n      cursor: pointer;\n}\n.days-calendar .calendar-header .next:hover {\n        color: #DDD;\n}\n.days-calendar .calendar-body {\n    width: 100%;\n}\n.days-calendar .calendar-body .weekdays {\n      display: table;\n      table-layout: fixed;\n      width: 100%;\n      margin-top: 1em;\n}\n.days-calendar .calendar-body .weekdays .weekday {\n        width: 14.28% !important;\n        font-weight: bold;\n        display: table-cell;\n        box-sizing: border-box;\n        position: relative;\n        text-align: center;\n        text-transform: uppercase;\n}\n.days-calendar .calendar-body .days {\n      margin-top: 1em;\n}\n.days-calendar .calendar-body .days .day {\n        display: inline-block;\n        padding: 0;\n        width: 14.28% !important;\n        text-align: center;\n        margin-bottom: 10px;\n        color: #777;\n        font-size: 20px;\n        line-height: 1;\n        cursor: pointer;\n}\n.days-calendar .calendar-body .days .day div:hover {\n          color: #DDD;\n}\n.days-calendar .calendar-body .days div.disabled {\n        color: #DDD;\n        cursor: not-allowed;\n}\n.calendar-modal .modal-mask {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: table;\n  transition: opacity .3s ease;\n}\n.calendar-modal .modal-wrapper {\n  display: table-cell;\n  vertical-align: middle;\n}\n.calendar-modal .close-button {\n  text-align: right;\n}\n.calendar-modal .close-button .modal-close {\n    font-size: 21px;\n    font-weight: bold;\n    line-height: 1;\n    color: #000;\n    text-shadow: 0 1px 0 #fff;\n    opacity: 0.2;\n    filter: alpha(opacity=20);\n    border: 0;\n    border-block-end-style: non;\n    background: none;\n}\n.calendar-modal .modal-container {\n  width: 300px;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n  color: #777;\n  font-size: 20px;\n  line-height: 1;\n  text-align: center;\n}\n.calendar-modal .modal-body {\n  margin: 20px 0;\n}\n.calendar-modal .modal-enter-active, .calendar-modal .modal-leave-active {\n  transition: opacity .3s;\n}\n.calendar-modal .modal-enter, .calendar-modal .modal-leave-active {\n  opacity: 0;\n}\n", ""]);
 
 	// exports
 
@@ -504,6 +504,11 @@ module.exports =
 	    };
 	  }
 	}; //
+	//
+	//
+	//
+	//
+	//
 	//
 	//
 	//
@@ -5404,7 +5409,22 @@ module.exports =
 	    on: {
 	      "click": _vm.stopClose
 	    }
-	  }, [_vm._t("modal-content", [_c('div', {
+	  }, [_c('div', {
+	    staticClass: "close-button"
+	  }, [_c('button', {
+	    staticClass: "modal-close",
+	    attrs: {
+	      "type": "button",
+	      "aria-label": "Close"
+	    },
+	    on: {
+	      "click": _vm.close
+	    }
+	  }, [_c('span', {
+	    attrs: {
+	      "aria-hidden": "true"
+	    }
+	  }, [_vm._v("×")])])]), _vm._v(" "), _vm._t("modal-content", [_c('div', {
 	    staticClass: "modal-header"
 	  }, [_vm._v("\n                  " + _vm._s(_vm.day.date.format('LL')) + "\n                ")]), _vm._v(" "), _c('div', {
 	    staticClass: "modal-body"
