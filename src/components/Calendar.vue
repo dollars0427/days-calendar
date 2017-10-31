@@ -13,6 +13,11 @@
           <div class="modal-mask" v-on:click="close">
             <div class="modal-wrapper">
               <div class="modal-container" v-on:click="stopClose">
+                <div class="close-button">
+                  <button type="button" class="modal-close" aria-label="Close" v-on:click="close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
                 <slot name="modal-content">
                   <div class="modal-header">
                     {{ day.date.format('LL') }}
