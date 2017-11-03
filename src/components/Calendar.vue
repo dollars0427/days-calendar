@@ -2,7 +2,7 @@
   <div class="calendar-conatiner">
     <div class="days-calendar">
       <div class="calendar-wrapper">
-        <CalendarHeader :getYearMonth="getYearMonth"></CalendarHeader>
+        <CalendarHeader :defaultStart="defaultStart" :getYearMonth="getYearMonth"></CalendarHeader>
         <CalendarBody :weekdays="weekdays" :renderContent="renderContent" :renderDays="renderDays" :month="month" :year="year"></CalendarBody>
       </div>
     </div>
@@ -56,6 +56,13 @@
         CalendarHeader
       },
       props:{
+        'defaultStart': {
+          'type': String,
+          'default': function(){
+            const defaultStart = moment().format('YYYY-MM-DD');
+            return defaultStart;
+          }
+        },
         'weekdays':{
           'type': Array,
           'default': function(){

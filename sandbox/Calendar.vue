@@ -1,5 +1,5 @@
 <template>
-  <Calendar :renderDays="renderDays"></Calendar>
+  <Calendar :renderDays="renderDays" :defaultStart="tomorrow"></Calendar>
 </template>
 
 <script>
@@ -9,6 +9,12 @@ import moment from 'moment';
 export default {
   components: {
      Calendar: DaysCalendar
+  },
+  data: function(){
+    const tomorrow = moment('2017-09-31').add(1,'days').format('YYYY-MM-DD');
+    return{
+      'tomrrow': tomorrow
+    }
   },
   methods:{
     renderDays: function(year, month, days){

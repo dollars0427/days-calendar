@@ -12,37 +12,40 @@
 <script>
 import moment from 'moment';
 
-const date = moment();
-const month = moment().month();
-const monthName = moment().format('MMM');
-const year = moment().year();
-
 export default {
   props:{
+    'defaultStart': String,
     'getYearMonth': Function
   },
-  data: function(){
-    const data  = {'month': month , 'monthName': monthName, 'year': year}
-    return data;
-  },
   created: function(){
-    this.getYearMonth(this.year, this.month);
+    this.setDate(this.defaultStart);
+  },
+  data: function(){
+    return {
+      'year': moment().year(),
+      'month': moment().month(),
+      'monthName': moment().format('MMM'),
+    }
   },
   methods: {
-    nextDate: function () {
-      date.add(1, 'M');
-      this.year = date.year();
-      this.month = date.month();
-      this.monthName = moment().month(this.month).format('MMM');
+    setDate: function(date){
+      date = moment(date);
+      const month = date.month();
+      const monthName = date.format('MMM');
+      const year = date.year();
+      this.date = date;
+      this.month = month;
+      this.monthName = monthName;
+      this.year = year;
       this.getYearMonth(this.year, this.month);
     },
-
+    nextDate: function () {
+      const date = this.date.add(1, 'M');
+      this.setDate(date);
+    },
     prevDate: function(){
-      date.subtract(1, 'M');
-      this.year = date.year();
-      this.month = date.month();
-      this.monthName = moment().month(this.month).format('MMM');
-      this.getYearMonth(this.year, this.month);
+      const date = this.date.subtract(1, 'M');
+      this.setDate(date);
     },
   },
 }
