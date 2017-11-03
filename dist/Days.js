@@ -454,6 +454,10 @@ module.exports =
 	    CalendarHeader: _Header2.default
 	  },
 	  props: {
+	    'defaultStart': {
+	      'type': String,
+	      'default': new _moment2.default().format('YYYY-MM-DD')
+	    },
 	    'weekdays': {
 	      'type': Array,
 	      'default': function _default() {
@@ -497,8 +501,8 @@ module.exports =
 	  },
 	  data: function data() {
 	    return {
-	      year: parseInt((0, _moment2.default)().format('YYYY')),
-	      month: parseInt((0, _moment2.default)().format('MM')) + 1,
+	      year: parseInt(new _moment2.default().format('YYYY')),
+	      month: parseInt(new _moment2.default().format('MM')) + 1,
 	      day: { 'number': 1 },
 	      showModal: false
 	    };
@@ -5110,51 +5114,53 @@ module.exports =
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var date = (0, _moment2.default)(); //
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-
-	var month = (0, _moment2.default)().month();
-	var monthName = (0, _moment2.default)().format('MMM');
-	var year = (0, _moment2.default)().year();
-
 	exports.default = {
 	  props: {
+	    'defaultStart': String,
 	    'getYearMonth': Function
 	  },
-	  data: function data() {
-	    var data = { 'month': month, 'monthName': monthName, 'year': year };
-	    return data;
-	  },
 	  created: function created() {
-	    this.getYearMonth(this.year, this.month);
+	    this.setDate(this.defaultStart);
+	  },
+	  data: function data() {
+	    return {
+	      'year': (0, _moment2.default)().year(),
+	      'month': (0, _moment2.default)().month(),
+	      'monthName': (0, _moment2.default)().format('MMM')
+	    };
 	  },
 	  methods: {
-	    nextDate: function nextDate() {
-	      date.add(1, 'M');
-	      this.year = date.year();
-	      this.month = date.month();
-	      this.monthName = (0, _moment2.default)().month(this.month).format('MMM');
+	    setDate: function setDate(date) {
+	      date = (0, _moment2.default)(date);
+	      var month = date.month();
+	      var monthName = date.format('MMM');
+	      var year = date.year();
+	      this.date = date;
+	      this.month = month;
+	      this.monthName = monthName;
+	      this.year = year;
 	      this.getYearMonth(this.year, this.month);
 	    },
-
+	    nextDate: function nextDate() {
+	      var date = this.date.add(1, 'M');
+	      this.setDate(date);
+	    },
 	    prevDate: function prevDate() {
-	      date.subtract(1, 'M');
-	      this.year = date.year();
-	      this.month = date.month();
-	      this.monthName = (0, _moment2.default)().month(this.month).format('MMM');
-	      this.getYearMonth(this.year, this.month);
+	      var date = this.date.subtract(1, 'M');
+	      this.setDate(date);
 	    }
 	  }
-	};
+	}; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 /***/ }),
 /* 12 */
@@ -5381,6 +5387,7 @@ module.exports =
 	    staticClass: "calendar-wrapper"
 	  }, [_c('CalendarHeader', {
 	    attrs: {
+	      "defaultStart": _vm.defaultStart,
 	      "getYearMonth": _vm.getYearMonth
 	    }
 	  }), _vm._v(" "), _c('CalendarBody', {
