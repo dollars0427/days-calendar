@@ -58,10 +58,7 @@
       props:{
         'defaultStart': {
           'type': String,
-          'default': function(){
-            const defaultStart = moment().format('YYYY-MM-DD');
-            return defaultStart;
-          }
+          'default': new moment().format('YYYY-MM-DD'),
         },
         'weekdays':{
           'type': Array,
@@ -106,8 +103,8 @@
       },
       data: function(){
         return {
-          year: parseInt(moment().format('YYYY')),
-          month: parseInt(moment().format('MM')) + 1,
+          year: parseInt(new moment().format('YYYY')),
+          month: parseInt(new moment().format('MM')) + 1,
           day : {'number': 1} ,
           showModal: false
         };
