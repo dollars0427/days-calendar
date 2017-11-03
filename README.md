@@ -94,6 +94,13 @@ By default, Days Calendar will show a modal which contain event content. If you 
  ```
 
 ## Props
+#### defaultStart (optional)
+A string which tell calendar should start on that date. Format is YYYY-MM-DD.
+
+Default value is current date.
+
+Example: 2017-11-03
+
 #### weekdays (optional)
 An array which include a list of weekdays. You can custom weekdays name by this props.
 
