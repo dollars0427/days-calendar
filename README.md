@@ -94,17 +94,22 @@ By default, Days Calendar will show a modal which contain event content. If you 
  ```
 
 ## Props
+#### langcode (optional)
+A string of language code which used to setting calendar language.
+Support language:
+1. English - en
+2. Traditional Chinese (Hong Kong) - zh-hk
+3. Traditional Chinese (Taiwan) - zh-tw
+4. Simplified Chinese - zh-cn
+
+Default value is en.
+
 #### defaultStart (optional)
 A string which tell calendar should start on that date. Format is YYYY-MM-DD.
 
 Default value is current date.
 
 Example: 2017-11-03
-
-#### weekdays (optional)
-An array which include a list of weekdays. You can custom weekdays name by this props.
-
-Default value: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 #### renderDay (optional)
 If you pass this props to Days Calendar, it will pass day object to the function before render the content.

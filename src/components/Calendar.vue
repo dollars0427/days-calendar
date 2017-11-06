@@ -2,8 +2,11 @@
   <div class="calendar-conatiner">
     <div class="days-calendar">
       <div class="calendar-wrapper">
-        <CalendarHeader :defaultStart="defaultStart" :getYearMonth="getYearMonth"></CalendarHeader>
-        <CalendarBody :weekdays="weekdays" :renderContent="renderContent" :renderDays="renderDays" :month="month" :year="year"></CalendarBody>
+        <CalendarHeader :langcode="langcode" :defaultStart="defaultStart" :getYearMonth="getYearMonth">
+        </CalendarHeader>
+        <CalendarBody :langcode="langcode" :weekdays="weekdays" :renderContent="renderContent" :renderDays="renderDays"
+        :month="month" :year="year">
+        </CalendarBody>
       </div>
     </div>
 
@@ -56,16 +59,13 @@
         CalendarHeader
       },
       props:{
+        'langcode': {
+          'type': String,
+          'default': 'en'
+        },
         'defaultStart': {
           'type': String,
           'default': new moment().format('YYYY-MM-DD'),
-        },
-        'weekdays':{
-          'type': Array,
-          'default': function(){
-            const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            return weekdays;
-          }
         },
         'onClick':{
           'type': Function,
@@ -77,16 +77,26 @@
           type: Function
         },
       },
+      computed: {
+        //Set weekday name by locale
+        'weekdays': function(){
+          moment.locale(this.langcode);
+          const weekdays = moment.weekdaysShort();
+          return weekdays;
+        }
+      },
       methods:{
+        //Function for get current year and month from header.
         getYearMonth: function(year, month){
           this.year = year;
           this.month = month;
         },
+
+        //Function for render the content of day
         renderContent: function(day){
           if(this.renderDay){
             day = this.renderDay(day);
           }
-
           if(this.onClick){
             this.onClick(day);
           }else{
@@ -94,14 +104,18 @@
             this.showModal = true;
           }
         },
+        //Function for close modal.
         close: function(){
           this.showModal = false;
         },
+
+        //Function for disable close event of modal.
         stopClose: function(e){
           e.stopPropagation();
         }
       },
       data: function(){
+        //Set default value of data
         return {
           year: parseInt(new moment().format('YYYY')),
           month: parseInt(new moment().format('MM')) + 1,

@@ -1,5 +1,5 @@
 <template>
-  <Calendar :renderDays="renderDays"></Calendar>
+  <Calendar :renderDays="renderDays" :langcode="langcode"></Calendar>
 </template>
 
 <script>
@@ -31,6 +31,11 @@ export default {
         resolve(days);
       });
     },
+  },
+  data: function(){
+    return {
+      'langcode': 'zh-hk'
+    }
   }
 }
 </script>

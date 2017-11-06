@@ -14,10 +14,12 @@ import moment from 'moment';
 
 export default {
   props:{
+    'langcode': String,
     'defaultStart': String,
     'getYearMonth': Function
   },
   created: function(){
+    moment.locale(this.langcode);
     this.setDate(this.defaultStart);
   },
   data: function(){

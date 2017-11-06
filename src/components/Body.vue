@@ -25,6 +25,7 @@ import moment from 'moment';
 
 function renderCalendar(year, month){
   let days = [];
+  //If last sunday is not in this month, calculate how many additon day between last month to this month
   const monthStart = new moment().set({year, month, 'date': 1}).startOf('day');
   const lastSunday = new moment().set({year, month, 'date': 1}).day('Sunday').startOf('day');
   const additonDays = monthStart.diff(lastSunday, 'days') -1;
@@ -38,6 +39,7 @@ function renderCalendar(year, month){
     }
   }
 
+  //Get how many days in this month, show it
   const monthLength = monthStart.endOf('month').date();
 
   for(let i = 1; i <= monthLength; i++){
@@ -50,6 +52,7 @@ function renderCalendar(year, month){
 
 export default {
   props: {
+    'langcode': String,
     'year': Number,
     'month': Number,
     'weekdays': Array,
@@ -58,6 +61,7 @@ export default {
   },
   methods: {
     updateCalender: function(){
+      moment.locale(this.langcode);
       this.days = renderCalendar(this.year, this.month);
       if(this.renderDays){
         this.renderDays(this.year, this.month, this.days)
