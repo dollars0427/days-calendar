@@ -73,7 +73,7 @@ module.exports =
 	__vue_exports__ = __webpack_require__(6)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(16)
+	var __vue_template__ = __webpack_require__(19)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -438,11 +438,11 @@ module.exports =
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _Header = __webpack_require__(10);
+	var _Header = __webpack_require__(13);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Body = __webpack_require__(13);
+	var _Body = __webpack_require__(16);
 
 	var _Body2 = _interopRequireDefault(_Body);
 
@@ -454,16 +454,13 @@ module.exports =
 	    CalendarHeader: _Header2.default
 	  },
 	  props: {
+	    'langcode': {
+	      'type': String,
+	      'default': 'en'
+	    },
 	    'defaultStart': {
 	      'type': String,
 	      'default': new _moment2.default().format('YYYY-MM-DD')
-	    },
-	    'weekdays': {
-	      'type': Array,
-	      'default': function _default() {
-	        var weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-	        return weekdays;
-	      }
 	    },
 	    'onClick': {
 	      'type': Function
@@ -475,16 +472,26 @@ module.exports =
 	      type: Function
 	    }
 	  },
+	  computed: {
+	    //Set weekday name by locale
+	    'weekdays': function weekdays() {
+	      _moment2.default.locale(this.langcode);
+	      var weekdays = _moment2.default.weekdaysShort();
+	      return weekdays;
+	    }
+	  },
 	  methods: {
+	    //Function for get current year and month from header.
 	    getYearMonth: function getYearMonth(year, month) {
 	      this.year = year;
 	      this.month = month;
 	    },
+
+	    //Function for render the content of day
 	    renderContent: function renderContent(day) {
 	      if (this.renderDay) {
 	        day = this.renderDay(day);
 	      }
-
 	      if (this.onClick) {
 	        this.onClick(day);
 	      } else {
@@ -492,14 +499,18 @@ module.exports =
 	        this.showModal = true;
 	      }
 	    },
+	    //Function for close modal.
 	    close: function close() {
 	      this.showModal = false;
 	    },
+
+	    //Function for disable close event of modal.
 	    stopClose: function stopClose(e) {
 	      e.stopPropagation();
 	    }
 	  },
 	  data: function data() {
+	    //Set default value of data
 	    return {
 	      year: parseInt(new _moment2.default().format('YYYY')),
 	      month: parseInt(new _moment2.default().format('MM')) + 1,
@@ -508,6 +519,9 @@ module.exports =
 	    };
 	  }
 	}; //
+	//
+	//
+	//
 	//
 	//
 	//
@@ -2388,7 +2402,7 @@ module.exports =
 	            module && module.exports) {
 	        try {
 	            oldLocale = globalLocale._abbr;
-	            !(function webpackMissingModule() { var e = new Error("Cannot find module \"./locale\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+	            __webpack_require__(9)("./" + name);
 	            // because defineLocale currently also sets the global locale, we
 	            // want to undo that for lazy loaded locales
 	            getSetGlobalLocale(oldLocale);
@@ -5043,13 +5057,23 @@ module.exports =
 
 /***/ }),
 /* 9 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
+	var map = {
+		"./zh-cn": 10,
+		"./zh-hk": 11,
+		"./zh-tw": 12
+	};
 	function webpackContext(req) {
-		throw new Error("Cannot find module '" + req + "'.");
-	}
-	webpackContext.keys = function() { return []; };
-	webpackContext.resolve = webpackContext;
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
 	webpackContext.id = 9;
 
@@ -5058,14 +5082,349 @@ module.exports =
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	//! moment.js locale configuration
+	//! locale : Chinese (China) [zh-cn]
+	//! author : suupic : https://github.com/suupic
+	//! author : Zeno Zeng : https://github.com/zenozeng
+
+	;(function (global, factory) {
+	    true ? factory(__webpack_require__(7)) :
+	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
+	   factory(global.moment)
+	}(this, (function (moment) { 'use strict';
+
+
+	var zhCn = moment.defineLocale('zh-cn', {
+	    months : '一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月'.split('_'),
+	    monthsShort : '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),
+	    weekdays : '星期日_星期一_星期二_星期三_星期四_星期五_星期六'.split('_'),
+	    weekdaysShort : '周日_周一_周二_周三_周四_周五_周六'.split('_'),
+	    weekdaysMin : '日_一_二_三_四_五_六'.split('_'),
+	    longDateFormat : {
+	        LT : 'HH:mm',
+	        LTS : 'HH:mm:ss',
+	        L : 'YYYY年MMMD日',
+	        LL : 'YYYY年MMMD日',
+	        LLL : 'YYYY年MMMD日Ah点mm分',
+	        LLLL : 'YYYY年MMMD日ddddAh点mm分',
+	        l : 'YYYY年MMMD日',
+	        ll : 'YYYY年MMMD日',
+	        lll : 'YYYY年MMMD日 HH:mm',
+	        llll : 'YYYY年MMMD日dddd HH:mm'
+	    },
+	    meridiemParse: /凌晨|早上|上午|中午|下午|晚上/,
+	    meridiemHour: function (hour, meridiem) {
+	        if (hour === 12) {
+	            hour = 0;
+	        }
+	        if (meridiem === '凌晨' || meridiem === '早上' ||
+	                meridiem === '上午') {
+	            return hour;
+	        } else if (meridiem === '下午' || meridiem === '晚上') {
+	            return hour + 12;
+	        } else {
+	            // '中午'
+	            return hour >= 11 ? hour : hour + 12;
+	        }
+	    },
+	    meridiem : function (hour, minute, isLower) {
+	        var hm = hour * 100 + minute;
+	        if (hm < 600) {
+	            return '凌晨';
+	        } else if (hm < 900) {
+	            return '早上';
+	        } else if (hm < 1130) {
+	            return '上午';
+	        } else if (hm < 1230) {
+	            return '中午';
+	        } else if (hm < 1800) {
+	            return '下午';
+	        } else {
+	            return '晚上';
+	        }
+	    },
+	    calendar : {
+	        sameDay : '[今天]LT',
+	        nextDay : '[明天]LT',
+	        nextWeek : '[下]ddddLT',
+	        lastDay : '[昨天]LT',
+	        lastWeek : '[上]ddddLT',
+	        sameElse : 'L'
+	    },
+	    dayOfMonthOrdinalParse: /\d{1,2}(日|月|周)/,
+	    ordinal : function (number, period) {
+	        switch (period) {
+	            case 'd':
+	            case 'D':
+	            case 'DDD':
+	                return number + '日';
+	            case 'M':
+	                return number + '月';
+	            case 'w':
+	            case 'W':
+	                return number + '周';
+	            default:
+	                return number;
+	        }
+	    },
+	    relativeTime : {
+	        future : '%s内',
+	        past : '%s前',
+	        s : '几秒',
+	        m : '1 分钟',
+	        mm : '%d 分钟',
+	        h : '1 小时',
+	        hh : '%d 小时',
+	        d : '1 天',
+	        dd : '%d 天',
+	        M : '1 个月',
+	        MM : '%d 个月',
+	        y : '1 年',
+	        yy : '%d 年'
+	    },
+	    week : {
+	        // GB/T 7408-1994《数据元和交换格式·信息交换·日期和时间表示法》与ISO 8601:1988等效
+	        dow : 1, // Monday is the first day of the week.
+	        doy : 4  // The week that contains Jan 4th is the first week of the year.
+	    }
+	});
+
+	return zhCn;
+
+	})));
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	//! moment.js locale configuration
+	//! locale : Chinese (Hong Kong) [zh-hk]
+	//! author : Ben : https://github.com/ben-lin
+	//! author : Chris Lam : https://github.com/hehachris
+	//! author : Konstantin : https://github.com/skfd
+
+	;(function (global, factory) {
+	    true ? factory(__webpack_require__(7)) :
+	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
+	   factory(global.moment)
+	}(this, (function (moment) { 'use strict';
+
+
+	var zhHk = moment.defineLocale('zh-hk', {
+	    months : '一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月'.split('_'),
+	    monthsShort : '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),
+	    weekdays : '星期日_星期一_星期二_星期三_星期四_星期五_星期六'.split('_'),
+	    weekdaysShort : '週日_週一_週二_週三_週四_週五_週六'.split('_'),
+	    weekdaysMin : '日_一_二_三_四_五_六'.split('_'),
+	    longDateFormat : {
+	        LT : 'HH:mm',
+	        LTS : 'HH:mm:ss',
+	        L : 'YYYY年MMMD日',
+	        LL : 'YYYY年MMMD日',
+	        LLL : 'YYYY年MMMD日 HH:mm',
+	        LLLL : 'YYYY年MMMD日dddd HH:mm',
+	        l : 'YYYY年MMMD日',
+	        ll : 'YYYY年MMMD日',
+	        lll : 'YYYY年MMMD日 HH:mm',
+	        llll : 'YYYY年MMMD日dddd HH:mm'
+	    },
+	    meridiemParse: /凌晨|早上|上午|中午|下午|晚上/,
+	    meridiemHour : function (hour, meridiem) {
+	        if (hour === 12) {
+	            hour = 0;
+	        }
+	        if (meridiem === '凌晨' || meridiem === '早上' || meridiem === '上午') {
+	            return hour;
+	        } else if (meridiem === '中午') {
+	            return hour >= 11 ? hour : hour + 12;
+	        } else if (meridiem === '下午' || meridiem === '晚上') {
+	            return hour + 12;
+	        }
+	    },
+	    meridiem : function (hour, minute, isLower) {
+	        var hm = hour * 100 + minute;
+	        if (hm < 600) {
+	            return '凌晨';
+	        } else if (hm < 900) {
+	            return '早上';
+	        } else if (hm < 1130) {
+	            return '上午';
+	        } else if (hm < 1230) {
+	            return '中午';
+	        } else if (hm < 1800) {
+	            return '下午';
+	        } else {
+	            return '晚上';
+	        }
+	    },
+	    calendar : {
+	        sameDay : '[今天]LT',
+	        nextDay : '[明天]LT',
+	        nextWeek : '[下]ddddLT',
+	        lastDay : '[昨天]LT',
+	        lastWeek : '[上]ddddLT',
+	        sameElse : 'L'
+	    },
+	    dayOfMonthOrdinalParse: /\d{1,2}(日|月|週)/,
+	    ordinal : function (number, period) {
+	        switch (period) {
+	            case 'd' :
+	            case 'D' :
+	            case 'DDD' :
+	                return number + '日';
+	            case 'M' :
+	                return number + '月';
+	            case 'w' :
+	            case 'W' :
+	                return number + '週';
+	            default :
+	                return number;
+	        }
+	    },
+	    relativeTime : {
+	        future : '%s內',
+	        past : '%s前',
+	        s : '幾秒',
+	        m : '1 分鐘',
+	        mm : '%d 分鐘',
+	        h : '1 小時',
+	        hh : '%d 小時',
+	        d : '1 天',
+	        dd : '%d 天',
+	        M : '1 個月',
+	        MM : '%d 個月',
+	        y : '1 年',
+	        yy : '%d 年'
+	    }
+	});
+
+	return zhHk;
+
+	})));
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	//! moment.js locale configuration
+	//! locale : Chinese (Taiwan) [zh-tw]
+	//! author : Ben : https://github.com/ben-lin
+	//! author : Chris Lam : https://github.com/hehachris
+
+	;(function (global, factory) {
+	    true ? factory(__webpack_require__(7)) :
+	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
+	   factory(global.moment)
+	}(this, (function (moment) { 'use strict';
+
+
+	var zhTw = moment.defineLocale('zh-tw', {
+	    months : '一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月'.split('_'),
+	    monthsShort : '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),
+	    weekdays : '星期日_星期一_星期二_星期三_星期四_星期五_星期六'.split('_'),
+	    weekdaysShort : '週日_週一_週二_週三_週四_週五_週六'.split('_'),
+	    weekdaysMin : '日_一_二_三_四_五_六'.split('_'),
+	    longDateFormat : {
+	        LT : 'HH:mm',
+	        LTS : 'HH:mm:ss',
+	        L : 'YYYY年MMMD日',
+	        LL : 'YYYY年MMMD日',
+	        LLL : 'YYYY年MMMD日 HH:mm',
+	        LLLL : 'YYYY年MMMD日dddd HH:mm',
+	        l : 'YYYY年MMMD日',
+	        ll : 'YYYY年MMMD日',
+	        lll : 'YYYY年MMMD日 HH:mm',
+	        llll : 'YYYY年MMMD日dddd HH:mm'
+	    },
+	    meridiemParse: /凌晨|早上|上午|中午|下午|晚上/,
+	    meridiemHour : function (hour, meridiem) {
+	        if (hour === 12) {
+	            hour = 0;
+	        }
+	        if (meridiem === '凌晨' || meridiem === '早上' || meridiem === '上午') {
+	            return hour;
+	        } else if (meridiem === '中午') {
+	            return hour >= 11 ? hour : hour + 12;
+	        } else if (meridiem === '下午' || meridiem === '晚上') {
+	            return hour + 12;
+	        }
+	    },
+	    meridiem : function (hour, minute, isLower) {
+	        var hm = hour * 100 + minute;
+	        if (hm < 600) {
+	            return '凌晨';
+	        } else if (hm < 900) {
+	            return '早上';
+	        } else if (hm < 1130) {
+	            return '上午';
+	        } else if (hm < 1230) {
+	            return '中午';
+	        } else if (hm < 1800) {
+	            return '下午';
+	        } else {
+	            return '晚上';
+	        }
+	    },
+	    calendar : {
+	        sameDay : '[今天]LT',
+	        nextDay : '[明天]LT',
+	        nextWeek : '[下]ddddLT',
+	        lastDay : '[昨天]LT',
+	        lastWeek : '[上]ddddLT',
+	        sameElse : 'L'
+	    },
+	    dayOfMonthOrdinalParse: /\d{1,2}(日|月|週)/,
+	    ordinal : function (number, period) {
+	        switch (period) {
+	            case 'd' :
+	            case 'D' :
+	            case 'DDD' :
+	                return number + '日';
+	            case 'M' :
+	                return number + '月';
+	            case 'w' :
+	            case 'W' :
+	                return number + '週';
+	            default :
+	                return number;
+	        }
+	    },
+	    relativeTime : {
+	        future : '%s內',
+	        past : '%s前',
+	        s : '幾秒',
+	        m : '1 分鐘',
+	        mm : '%d 分鐘',
+	        h : '1 小時',
+	        hh : '%d 小時',
+	        d : '1 天',
+	        dd : '%d 天',
+	        M : '1 個月',
+	        MM : '%d 個月',
+	        y : '1 年',
+	        yy : '%d 年'
+	    }
+	});
+
+	return zhTw;
+
+	})));
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 
 	/* script */
-	__vue_exports__ = __webpack_require__(11)
+	__vue_exports__ = __webpack_require__(14)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(12)
+	var __vue_template__ = __webpack_require__(15)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -5099,7 +5458,7 @@ module.exports =
 
 
 /***/ }),
-/* 11 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5116,10 +5475,12 @@ module.exports =
 
 	exports.default = {
 	  props: {
+	    'langcode': String,
 	    'defaultStart': String,
 	    'getYearMonth': Function
 	  },
 	  created: function created() {
+	    _moment2.default.locale(this.langcode);
 	    this.setDate(this.defaultStart);
 	  },
 	  data: function data() {
@@ -5163,7 +5524,7 @@ module.exports =
 	//
 
 /***/ }),
-/* 12 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5195,17 +5556,17 @@ module.exports =
 	}
 
 /***/ }),
-/* 13 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 
 	/* script */
-	__vue_exports__ = __webpack_require__(14)
+	__vue_exports__ = __webpack_require__(17)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(15)
+	var __vue_template__ = __webpack_require__(18)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -5239,7 +5600,7 @@ module.exports =
 
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5256,6 +5617,7 @@ module.exports =
 
 	function renderCalendar(year, month) {
 	  var days = [];
+	  //If last sunday is not in this month, calculate how many additon day between last month to this month
 	  var monthStart = new _moment2.default().set({ year: year, month: month, 'date': 1 }).startOf('day');
 	  var lastSunday = new _moment2.default().set({ year: year, month: month, 'date': 1 }).day('Sunday').startOf('day');
 	  var additonDays = monthStart.diff(lastSunday, 'days') - 1;
@@ -5269,6 +5631,7 @@ module.exports =
 	    }
 	  }
 
+	  //Get how many days in this month, show it
 	  var monthLength = monthStart.endOf('month').date();
 
 	  for (var _i = 1; _i <= monthLength; _i++) {
@@ -5302,6 +5665,7 @@ module.exports =
 
 	exports.default = {
 	  props: {
+	    'langcode': String,
 	    'year': Number,
 	    'month': Number,
 	    'weekdays': Array,
@@ -5312,6 +5676,7 @@ module.exports =
 	    updateCalender: function updateCalender() {
 	      var _this = this;
 
+	      _moment2.default.locale(this.langcode);
 	      this.days = renderCalendar(this.year, this.month);
 	      if (this.renderDays) {
 	        this.renderDays(this.year, this.month, this.days).then(function (days) {
@@ -5338,7 +5703,7 @@ module.exports =
 	};
 
 /***/ }),
-/* 15 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5375,7 +5740,7 @@ module.exports =
 	}
 
 /***/ }),
-/* 16 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5387,11 +5752,13 @@ module.exports =
 	    staticClass: "calendar-wrapper"
 	  }, [_c('CalendarHeader', {
 	    attrs: {
+	      "langcode": _vm.langcode,
 	      "defaultStart": _vm.defaultStart,
 	      "getYearMonth": _vm.getYearMonth
 	    }
 	  }), _vm._v(" "), _c('CalendarBody', {
 	    attrs: {
+	      "langcode": _vm.langcode,
 	      "weekdays": _vm.weekdays,
 	      "renderContent": _vm.renderContent,
 	      "renderDays": _vm.renderDays,
