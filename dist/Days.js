@@ -5480,39 +5480,52 @@ module.exports =
 	    'getYearMonth': Function
 	  },
 	  created: function created() {
-	    _moment2.default.locale(this.langcode);
+	    var langcode = this.langcode;
+	    switch (langcode) {
+	      case 'en':
+	        _moment2.default.locale(langcode, {
+	          longDateFormat: {
+	            LL: 'MMM YYYY'
+	          }
+	        });
+	        break;
+
+	      default:
+	        _moment2.default.locale(langcode, {
+	          longDateFormat: {
+	            LL: 'YYYY年 MMM'
+	          }
+	        });
+	    }
 	    this.setDate(this.defaultStart);
 	  },
 	  data: function data() {
 	    return {
-	      'year': (0, _moment2.default)().year(),
-	      'month': (0, _moment2.default)().month(),
-	      'monthName': (0, _moment2.default)().format('MMM')
+	      'formattedDate': (0, _moment2.default)().format('LL')
 	    };
 	  },
 	  methods: {
-	    setDate: function setDate(date) {
-	      date = (0, _moment2.default)(date);
-	      var month = date.month();
-	      var monthName = date.format('MMM');
-	      var year = date.year();
-	      this.date = date;
-	      this.month = month;
-	      this.monthName = monthName;
-	      this.year = year;
-	      this.getYearMonth(this.year, this.month);
+	    setDate: function setDate(currentDate) {
+	      currentDate = (0, _moment2.default)(currentDate);
+	      var formattedDate = currentDate.format('LL');
+	      var month = currentDate.month();
+	      var year = currentDate.year();
+
+	      this.currentDate = currentDate;
+	      this.formattedDate = formattedDate;
+	      //Pass current year and month to calendar body
+	      this.getYearMonth(year, month);
 	    },
 	    nextDate: function nextDate() {
-	      var date = this.date.add(1, 'M');
-	      this.setDate(date);
+	      var currentDate = this.currentDate.add(1, 'M');
+	      this.setDate(currentDate);
 	    },
 	    prevDate: function prevDate() {
-	      var date = this.date.subtract(1, 'M');
-	      this.setDate(date);
+	      var currentDate = this.currentDate.subtract(1, 'M');
+	      this.setDate(currentDate);
 	    }
 	  }
 	}; //
-	//
 	//
 	//
 	//
@@ -5543,10 +5556,8 @@ module.exports =
 	      "click": _vm.nextDate
 	    }
 	  }, [_vm._v("❯")]), _vm._v(" "), _c('span', {
-	    staticClass: "month"
-	  }, [_vm._v(_vm._s(_vm.monthName))]), _vm._v(" "), _c('span', {
-	    staticClass: "year"
-	  }, [_vm._v(_vm._s(_vm.year))])])])
+	    staticClass: "date"
+	  }, [_vm._v(_vm._s(_vm.formattedDate))])])])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
