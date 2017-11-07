@@ -82,14 +82,16 @@ By default, Days Calendar will show a modal which contain event content. If you 
 
  ```js
  renderDays: function(days){
-   for(let i = 0; i < days.length; i++){
-     const weekday = days[i].date.weekday();
-     //If it is Tuesday, disable it
-     if(weekday == 2){
-       days[i].disabled = true;
+   return new Promise((resolve, reject) => {
+     for(let i = 0; i < days.length; i++){
+       const weekday = days[i].date.weekday();
+       //If it is Tuesday, disable it
+       if(weekday == 2){
+         days[i].disabled = true;
+       }
      }
-   }
-   return days;
+      resolve(days);
+   });
  },
  ```
 

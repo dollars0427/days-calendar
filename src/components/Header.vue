@@ -19,9 +19,10 @@ export default {
   },
   created: function(){
     const langcode = this.langcode;
+    moment.locale(langcode);
     switch(langcode){
       case 'en':
-      moment.locale(langcode, {
+      moment.updateLocale(langcode, {
         longDateFormat:{
           LL: 'MMM YYYY',
         }
@@ -29,7 +30,7 @@ export default {
       break;
 
       default:
-      moment.locale(langcode, {
+      moment.updateLocale(langcode, {
         longDateFormat:{
           LL: 'YYYY年 MMM',
         }
