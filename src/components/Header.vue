@@ -3,8 +3,7 @@
     <div class="calendar-header">
       <span class="prev" v-on:click="prevDate">&#10094;</span>
       <span class="next" v-on:click="nextDate">&#10095;</span>
-      <span class="month">{{ monthName }}</span>
-      <span class="year">{{ year }}</span>
+      <span class="date">{{ formattedDate }}</span>
     </div>
   </div>
 </template>
@@ -19,35 +18,49 @@ export default {
     'getYearMonth': Function
   },
   created: function(){
-    moment.locale(this.langcode);
+    const langcode = this.langcode;
+    switch(langcode){
+      case 'en':
+      moment.locale(langcode, {
+        longDateFormat:{
+          LL: 'MMM YYYY',
+        }
+      });
+      break;
+
+      default:
+      moment.locale(langcode, {
+        longDateFormat:{
+          LL: 'YYYY年 MMM',
+        }
+      });
+    }
     this.setDate(this.defaultStart);
   },
   data: function(){
     return {
-      'year': moment().year(),
-      'month': moment().month(),
-      'monthName': moment().format('MMM'),
+      'formattedDate': moment().format('LL'),
     }
   },
   methods: {
-    setDate: function(date){
-      date = moment(date);
-      const month = date.month();
-      const monthName = date.format('MMM');
-      const year = date.year();
-      this.date = date;
-      this.month = month;
-      this.monthName = monthName;
-      this.year = year;
-      this.getYearMonth(this.year, this.month);
+    setDate: function(currentDate){
+      currentDate = moment(currentDate);
+      const formattedDate = currentDate.format('LL');
+      const month = currentDate.month();
+      const year = currentDate.year();
+
+      this.currentDate = currentDate;
+      this.formattedDate = formattedDate;
+      //Pass current year and month to calendar body
+      this.getYearMonth(year, month);
     },
     nextDate: function () {
-      const date = this.date.add(1, 'M');
-      this.setDate(date);
+      const currentDate = this.currentDate.add(1, 'M');
+      this.setDate(currentDate);
     },
     prevDate: function(){
-      const date = this.date.subtract(1, 'M');
-      this.setDate(date);
+      const currentDate = this.currentDate.subtract(1, 'M');
+      this.setDate(currentDate);
     },
   },
 }
