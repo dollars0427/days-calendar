@@ -5481,9 +5481,10 @@ module.exports =
 	  },
 	  created: function created() {
 	    var langcode = this.langcode;
+	    _moment2.default.locale(langcode);
 	    switch (langcode) {
 	      case 'en':
-	        _moment2.default.locale(langcode, {
+	        _moment2.default.updateLocale(langcode, {
 	          longDateFormat: {
 	            LL: 'MMM YYYY'
 	          }
@@ -5491,7 +5492,7 @@ module.exports =
 	        break;
 
 	      default:
-	        _moment2.default.locale(langcode, {
+	        _moment2.default.updateLocale(langcode, {
 	          longDateFormat: {
 	            LL: 'YYYY年 MMM'
 	          }
