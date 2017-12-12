@@ -5736,8 +5736,15 @@ module.exports =
 	      class: day.class
 	    }, [_c('span', [_vm._v(_vm._s(day.number))])]) : _c('div', {
 	      class: day.class,
+	      attrs: {
+	        "tabindex": "0"
+	      },
 	      on: {
 	        "click": function($event) {
+	          _vm.renderContent(day)
+	        },
+	        "keyup": function($event) {
+	          if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
 	          _vm.renderContent(day)
 	        }
 	      }
@@ -5812,7 +5819,7 @@ module.exports =
 	    }
 	  }, [_vm._v("×")])])]), _vm._v(" "), _vm._t("modal-content", [_c('div', {
 	    staticClass: "modal-header"
-	  }, [_vm._v("\n                  " + _vm._s(_vm.day.date.format('LL')) + "\n                ")]), _vm._v(" "), _c('div', {
+	  }), _vm._v(" "), _c('div', {
 	    staticClass: "modal-body"
 	  }, [(_vm.day.content) ? _c('div', [_c('div', {
 	    domProps: {

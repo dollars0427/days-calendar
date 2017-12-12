@@ -12,7 +12,7 @@
       <div :class="day.class" v-if="day.disabled">
         <span>{{day.number}}</span>
       </div>
-      <div v-else :class="day.class" v-on:click="renderContent(day)">
+      <div v-else tabindex="0" :class="day.class" v-on:click="renderContent(day)" v-on:keyup.enter="renderContent(day)">
         <span>{{day.number}}</span>
       </div>
     </div>

@@ -1,8 +1,8 @@
 <template>
   <div class="calendar-wrapper">
     <div class="calendar-header">
-      <span class="prev" v-on:click="prevDate">&#10094;</span>
-      <span class="next" v-on:click="nextDate">&#10095;</span>
+      <span tabindex="0" class="prev" v-on:click="prevDate" v-on:keyup.enter="prevDate">&#10094;</span>
+      <span tabindex="0" class="next" v-on:click="nextDate" v-on:keyup.enter="nextDate">&#10095;</span>
       <span class="date">{{ formattedDate }}</span>
     </div>
   </div>
@@ -20,33 +20,17 @@ export default {
   created: function(){
     const langcode = this.langcode;
     moment.locale(langcode);
-    switch(langcode){
-      case 'en':
-      moment.updateLocale(langcode, {
-        longDateFormat:{
-          LL: 'MMM YYYY',
-        }
-      });
-      break;
-
-      default:
-      moment.updateLocale(langcode, {
-        longDateFormat:{
-          LL: 'YYYY年 MMM',
-        }
-      });
-    }
     this.setDate(this.defaultStart);
   },
   data: function(){
     return {
-      'formattedDate': moment().format('LL'),
+      'formattedDate': moment().format('ll'),
     }
   },
   methods: {
     setDate: function(currentDate){
       currentDate = moment(currentDate);
-      const formattedDate = currentDate.format('LL');
+      const formattedDate = currentDate.format('ll');
       const month = currentDate.month();
       const year = currentDate.year();
 
