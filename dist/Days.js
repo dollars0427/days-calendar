@@ -497,6 +497,7 @@ module.exports =
 	      } else {
 	        this.day = day;
 	        this.showModal = true;
+	        document.getElementById('calendar-modal').focus(); //Auto focus on modal
 	      }
 	    },
 	    //Function for close modal.
@@ -512,6 +513,14 @@ module.exports =
 	  data: function data() {
 	    //Set default value of data
 	    return {
+	      i18nText: {
+	        close: {
+	          'en': 'Close',
+	          'zh-hk': '關閉',
+	          'zh-tw': '關閉',
+	          'zh-cn': '关闭'
+	        }
+	      },
 	      year: parseInt(new _moment2.default().format('YYYY')),
 	      month: parseInt(new _moment2.default().format('MM')) + 1,
 	      day: { 'number': 1 },
@@ -5482,10 +5491,40 @@ module.exports =
 	  created: function created() {
 	    var langcode = this.langcode;
 	    _moment2.default.locale(langcode);
+	    switch (langcode) {
+	      case 'en':
+	        _moment2.default.updateLocale(langcode, {
+	          longDateFormat: {
+	            ll: 'MMM YYYY'
+	          }
+	        });
+	        break;
+
+	      default:
+	        _moment2.default.updateLocale(langcode, {
+	          longDateFormat: {
+	            ll: 'YYYY年 MMM'
+	          }
+	        });
+	    }
 	    this.setDate(this.defaultStart);
 	  },
 	  data: function data() {
 	    return {
+	      i18nText: {
+	        prev: {
+	          'en': 'Previous Month',
+	          'zh-hk': '上一月',
+	          'zh-tw': '上月',
+	          'zh-cn': '上月'
+	        },
+	        next: {
+	          'en': 'Next Month',
+	          'zh-hk': '下一月',
+	          'zh-tw': '下月',
+	          'zh-cn': '下月'
+	        }
+	      },
 	      'formattedDate': (0, _moment2.default)().format('ll')
 	    };
 	  },
@@ -5520,6 +5559,10 @@ module.exports =
 	//
 	//
 	//
+	//
+	//
+	//
+	//
 
 /***/ }),
 /* 15 */
@@ -5533,7 +5576,9 @@ module.exports =
 	  }, [_c('span', {
 	    staticClass: "prev",
 	    attrs: {
-	      "tabindex": "0"
+	      "tabindex": "0",
+	      "role": "button",
+	      "aria-label": _vm.i18nText.prev[_vm.langcode]
 	    },
 	    on: {
 	      "click": _vm.prevDate,
@@ -5542,10 +5587,12 @@ module.exports =
 	        _vm.prevDate($event)
 	      }
 	    }
-	  }, [_vm._v("❮")]), _vm._v(" "), _c('span', {
+	  }, [_vm._v("❮\n  ")]), _vm._v(" "), _c('span', {
 	    staticClass: "next",
 	    attrs: {
-	      "tabindex": "0"
+	      "tabindex": "0",
+	      "role": "button",
+	      "aria-label": _vm.i18nText.next[_vm.langcode]
 	    },
 	    on: {
 	      "click": _vm.nextDate,
@@ -5554,7 +5601,7 @@ module.exports =
 	        _vm.nextDate($event)
 	      }
 	    }
-	  }, [_vm._v("❯")]), _vm._v(" "), _c('span', {
+	  }, [_vm._v("❯\n    ")]), _vm._v(" "), _c('span', {
 	    staticClass: "date"
 	  }, [_vm._v(_vm._s(_vm.formattedDate))])])])
 	},staticRenderFns: []}
@@ -5672,6 +5719,7 @@ module.exports =
 	//
 	//
 	//
+	//
 
 	exports.default = {
 	  props: {
@@ -5735,7 +5783,9 @@ module.exports =
 	    }, [_c('span', [_vm._v(_vm._s(day.number))])]) : _c('div', {
 	      class: day.class,
 	      attrs: {
-	        "tabindex": "0"
+	        "role": "button",
+	        "tabindex": "0",
+	        "aria-label": day.date.format('LL')
 	      },
 	      on: {
 	        "click": function($event) {
@@ -5783,7 +5833,11 @@ module.exports =
 	      "year": _vm.year
 	    }
 	  })], 1)]), _vm._v(" "), _c('div', {
-	    staticClass: "calendar-modal"
+	    staticClass: "calendar-modal",
+	    attrs: {
+	      "id": "calendar-modal",
+	      "tabindex": "-1"
+	    }
 	  }, [_c('transition', {
 	    attrs: {
 	      "name": "modal"
@@ -5806,7 +5860,7 @@ module.exports =
 	    staticClass: "modal-close",
 	    attrs: {
 	      "type": "button",
-	      "aria-label": "Close"
+	      "aria-label": _vm.i18nText.close[_vm.langcode]
 	    },
 	    on: {
 	      "click": _vm.close
