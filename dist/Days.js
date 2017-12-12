@@ -5482,33 +5482,17 @@ module.exports =
 	  created: function created() {
 	    var langcode = this.langcode;
 	    _moment2.default.locale(langcode);
-	    switch (langcode) {
-	      case 'en':
-	        _moment2.default.updateLocale(langcode, {
-	          longDateFormat: {
-	            LL: 'MMM YYYY'
-	          }
-	        });
-	        break;
-
-	      default:
-	        _moment2.default.updateLocale(langcode, {
-	          longDateFormat: {
-	            LL: 'YYYY年 MMM'
-	          }
-	        });
-	    }
 	    this.setDate(this.defaultStart);
 	  },
 	  data: function data() {
 	    return {
-	      'formattedDate': (0, _moment2.default)().format('LL')
+	      'formattedDate': (0, _moment2.default)().format('ll')
 	    };
 	  },
 	  methods: {
 	    setDate: function setDate(currentDate) {
 	      currentDate = (0, _moment2.default)(currentDate);
-	      var formattedDate = currentDate.format('LL');
+	      var formattedDate = currentDate.format('ll');
 	      var month = currentDate.month();
 	      var year = currentDate.year();
 
@@ -5548,13 +5532,27 @@ module.exports =
 	    staticClass: "calendar-header"
 	  }, [_c('span', {
 	    staticClass: "prev",
+	    attrs: {
+	      "tabindex": "0"
+	    },
 	    on: {
-	      "click": _vm.prevDate
+	      "click": _vm.prevDate,
+	      "keyup": function($event) {
+	        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+	        _vm.prevDate($event)
+	      }
 	    }
 	  }, [_vm._v("❮")]), _vm._v(" "), _c('span', {
 	    staticClass: "next",
+	    attrs: {
+	      "tabindex": "0"
+	    },
 	    on: {
-	      "click": _vm.nextDate
+	      "click": _vm.nextDate,
+	      "keyup": function($event) {
+	        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+	        _vm.nextDate($event)
+	      }
 	    }
 	  }, [_vm._v("❯")]), _vm._v(" "), _c('span', {
 	    staticClass: "date"
@@ -5819,7 +5817,7 @@ module.exports =
 	    }
 	  }, [_vm._v("×")])])]), _vm._v(" "), _vm._t("modal-content", [_c('div', {
 	    staticClass: "modal-header"
-	  }), _vm._v(" "), _c('div', {
+	  }, [_vm._v("\n                  " + _vm._s(_vm.day.date.format('LL')) + "\n                ")]), _vm._v(" "), _c('div', {
 	    staticClass: "modal-body"
 	  }, [(_vm.day.content) ? _c('div', [_c('div', {
 	    domProps: {

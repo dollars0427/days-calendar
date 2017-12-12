@@ -34,7 +34,7 @@ export default {
   },
   data: function(){
     return {
-      'langcode': 'en'
+      'langcode': 'zh-hk'
     }
   }
 }

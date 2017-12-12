@@ -10,14 +10,14 @@
       </div>
     </div>
 
-    <div class="calendar-modal">
+    <div id="calendar-modal" class="calendar-modal" tabindex="-1">
       <transition name="modal">
         <div v-if="showModal">
           <div class="modal-mask" v-on:click="close">
             <div class="modal-wrapper">
               <div class="modal-container" v-on:click="stopClose">
                 <div class="close-button">
-                  <button type="button" class="modal-close" aria-label="Close" v-on:click="close">
+                  <button type="button" class="modal-close" :aria-label="i18nText.close[langcode]" v-on:click="close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -102,6 +102,7 @@
           }else{
             this.day = day;
             this.showModal = true;
+            document.getElementById('calendar-modal').focus(); //Auto focus on modal
           }
         },
         //Function for close modal.
@@ -117,6 +118,14 @@
       data: function(){
         //Set default value of data
         return {
+          i18nText: {
+            close: {
+              'en': 'Close',
+              'zh-hk': '關閉',
+              'zh-tw': '關閉',
+              'zh-cn': '关闭',
+            }
+          },
           year: parseInt(new moment().format('YYYY')),
           month: parseInt(new moment().format('MM')) + 1,
           day : {'number': 1} ,
